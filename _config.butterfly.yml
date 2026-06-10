@@ -68,15 +68,14 @@ avatar:
 
 # Disable all banner images
 disable_top_img: false
-
 # If the banner of page not setting, it will show the default_top_img
-default_top_img: false
+default_top_img: /img/Home.png
 
 # The banner image of index page
-index_img: false
+index_img: /img/Home.png
 
 # The banner image of archive page
-archive_img:
+archive_img: /img/archive.png
 
 # Note: tag page, not tags page
 tag_img:
@@ -171,7 +170,7 @@ subtitle:
   # 3 - jinrishici.com
   source: false
   # If you close the typewriter effect, the subtitle will only show the first line of sub
-  sub:
+  sub: 开启幸福每一天
 
 # Article layout on the homepage
 # 1: Cover on the left, info on the right
@@ -189,7 +188,7 @@ index_layout: 3
 # 3: auto_excerpt (default)
 # false: do not show the article introduction
 index_post_content:
-  method: 3
+  method: 2
   # If you set method to 2 or 3, the length need to config
   length: 500
 
@@ -209,7 +208,7 @@ toc:
 post_copyright:
   enable: true
   decode: false
-  author_href:
+  author_href: /about
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
@@ -266,12 +265,12 @@ footer:
   nav:
   owner:
     enable: true
-    since: 2025
+    since: 2026
   # Copyright of theme and framework
   copyright:
     enable: true
     version: true
-  custom_text:
+  custom_text: 来到这个世界的角落，记录我的成长。
 
 # --------------------------------------
 # Aside Settings
@@ -400,7 +399,7 @@ darkmode:
   end:
 
 # Show scroll percent in scroll-to-top button
-rightside_scroll_percent: false
+rightside_scroll_percent: true
 
 # Don't modify the following settings unless you know how they work
 # Choose: readmode,translate,darkmode,hideAside,toc,chat,comment
@@ -481,8 +480,8 @@ math:
 search:
   # Choose: algolia_search / local_search / docsearch
   # leave it empty if you don't need search
-  use:
-  placeholder:
+  use: local_search
+  placeholder: 
 
   # Algolia Search
   algolia_search:
@@ -916,7 +915,7 @@ clickShowText:
 # https://github.com/francoischalifour/medium-zoom
 # https://fancyapps.com/fancybox/
 # Leave it empty if you don't need lightbox
-lightbox:
+lightbox: fancybox
 
 # --------------------------------------
 # Tag Plugins settings
@@ -924,7 +923,7 @@ lightbox:
 
 # Series
 series:
-  enable: false
+  enable: true
   # Order by title or date
   orderBy: 'title'
   # Sort of order. 1, asc for ascending; -1, desc for descending
@@ -998,7 +997,7 @@ pjax:
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
-  enable: false
+  enable: true
   per_page: true
 
 # Snackbar - Toast Notification
@@ -1013,14 +1012,14 @@ snackbar:
 
 # Instant.page
 # https://instant.page/
-instantpage: false
+instantpage: true
 
 # Lazyload
 # https://github.com/verlok/vanilla-lazyload
 lazyload:
-  enable: false
+  enable: true
   # Use browser's native lazyload instead of vanilla-lazyload
-  native: false
+  native: true
   # Specify the field to use lazyload (site or post)
   field: site
   placeholder:
@@ -1061,13 +1060,17 @@ structured_data:
 # Add the vendor prefixes to ensure compatibility
 css_prefix: true
 
-# Inject
-# Insert the code to head (before '</head>' tag) and the bottom (before '</body>' tag)
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+    # 引入 APlayer 样式
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
   bottom:
-    # - <script src="xxxx"></script>
+    # 引入 APlayer 主脚本
+    - <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    # 引入 Meting，用于自动解析歌单
+    - <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+    # 吸底播放器容器（固定左下角）
+    - <div id="player" class="aplayer aplayer-withlist" data-id="60198" data-server="netease" data-type="playlist" data-fixed="true" data-mini="false" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" data-mutex="true"></div>
 
 # CDN Settings
 # Don't modify the following settings unless you know how they work
