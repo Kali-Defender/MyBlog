@@ -1,8 +1,9 @@
 ---
 title: Java基础·第1篇：面向对象 vs 面向过程——Java和C语言到底有什么区别？
-date: 2026-06-09 10:06:57
-tags:
-  - JavaSE
+categories: 
+  - JavaSE  # 注意这里用的是列表，即使只有一个也可以写成单行
+tags: 
+  - 编程范式
 cover: /img/JavaSE_1/coffee.png
 ---
 ## 编程语言的分类
