@@ -296,9 +296,19 @@ aside:
       icon: fab fa-github
       text: Follow Me
       link: https://github.com/Kali-Defender
+  
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: |
+      <div style="font-size: 14px; line-height: 1.6;">
+        你好，我是 七夏 👋<br><br>
+        这个博客记录两件事：<strong>技术</strong> 与 <strong>生活</strong>。<br><br>
+        🔧 <strong>技术</strong>：编程 / 工具 / 踩坑笔记<br>
+        🌤️ <strong>生活</strong>：日常 / 思考 / 柔软的时刻<br><br>
+        不追热点，不装深刻。<br>
+        只为记录一个普通工程师的成长与日常。<br><br>
+        欢迎你来，一起写代码，也一起好好生活。
+      </div>
   card_recent_post:
     enable: true
     # If set 0 will show all
@@ -435,7 +445,7 @@ copy:
 
 # Need to install the hexo-wordcount plugin
 wordcount:
-  enable: false
+  enable: true
   # Display the word count of the article in post meta
   post_wordcount: true
   # Display the time to read the article in post meta
@@ -595,11 +605,11 @@ valine:
 # Waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  enable: true 
-  serverURL: 'https://developers.cloudflare.com/workers/wrangler/configuration/#bundling-issues'
+  enable: 
+  serverURL: 
   bg:
   # Use Waline pageview count as the page view count
-  pageview: false
+  pageview: 
   option:
 
 # Utterances
@@ -1140,3 +1150,15 @@ CDN:
     # valine:
     # waline_css:
     # waline_js:
+  card_announcement:
+    enable: true
+    content: |
+      <div style="font-size: 14px; line-height: 1.6;">
+        你好，我是 七夏 👋<br><br>
+        这个博客记录两件事：<strong>技术</strong> 与 <strong>生活</strong>。<br><br>
+        🔧 <strong>技术</strong>：编程 / 工具 / 踩坑笔记<br>
+        🌤️ <strong>生活</strong>：日常 / 思考 / 柔软的时刻<br><br>
+        不追热点，不装深刻。<br>
+        只为记录一个普通工程师的成长与日常。<br><br>
+        欢迎你来，一起写代码，也一起好好生活。
+      </div>
