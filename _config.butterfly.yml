@@ -124,6 +124,7 @@ error_404:
 
 # about page
 about_img: /img/about.png
+
 post_meta:
   # Home Page
   page:
