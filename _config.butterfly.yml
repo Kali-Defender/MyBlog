@@ -121,6 +121,9 @@ error_404:
   subtitle: 'Page Not Found'
   background: /img/error-page.png
 
+
+# about page
+about_img: /img/about.png
 post_meta:
   # Home Page
   page:
