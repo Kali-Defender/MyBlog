@@ -2,6 +2,7 @@
 title: 关于我
 layout: about
 type: "about"
+top_img: img/about.png
 comments: false
 ---
 <div style="border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px 20px; margin: 20px 0; background: #f6ffed;">
