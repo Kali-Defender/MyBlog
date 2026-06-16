@@ -65,7 +65,7 @@ INSERT INTO user (name, age) VALUES ('张三', 25), ('李四', 30);
 ```
 
 ### 4. 项目结构（最终长这样）
-
+![图片描述](/img/MyBatis_1/p2.png)
 
 
 

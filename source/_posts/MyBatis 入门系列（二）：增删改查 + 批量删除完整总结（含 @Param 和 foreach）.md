@@ -211,7 +211,7 @@ public class MyBatisTest {
 
 
 将三个文件的内容编写好后，运行测试类，运行结果如下：
-
+![图片描述](/img/MyBatis_2/p2.png)
 
 ## 四、核心知识点回顾
 
