@@ -1,5 +1,6 @@
 ---
 title: Git与GitHub从零到一完整演练
+date: 2026/6/16
 categories: 
   - 工具  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 

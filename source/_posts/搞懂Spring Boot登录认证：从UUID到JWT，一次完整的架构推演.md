@@ -1,5 +1,6 @@
 ---
 title: 搞懂Spring Boot登录认证：从UUID到JWT，一次完整的架构推演
+date: 2026/6/11
 categories: 
   - JavaWeb  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 

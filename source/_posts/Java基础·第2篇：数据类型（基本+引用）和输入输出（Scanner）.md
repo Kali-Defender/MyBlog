@@ -1,5 +1,6 @@
 ---
 title: Java基础·第2篇：数据类型（基本+引用）和输入输出（Scanner）
+date: 2026/6/10
 categories: 
   - JavaSE  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 

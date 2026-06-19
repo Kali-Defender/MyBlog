@@ -1,5 +1,6 @@
 ---
 title: Spring Boot 从零入门：请求响应、三层架构与 IOC、DI 实践总结
+date: 2026/6/11
 categories: 
   - JavaWeb  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 

@@ -1,5 +1,6 @@
 ---
 title: MyBatis 入门系列（二）：增删改查 + 批量删除完整总结（含 @Param 和 foreach）
+date: 2026/6/10
 categories: 
   - MyBatis  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 

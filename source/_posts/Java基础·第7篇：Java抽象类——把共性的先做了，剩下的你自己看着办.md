@@ -1,5 +1,6 @@
 ---
 title: Java基础·第7篇：Java抽象类——把共性的先做了，剩下的你自己看着办
+date: 2026/6/16
 categories: 
   - JavaSE  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 

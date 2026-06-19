@@ -1,5 +1,6 @@
 ---
 title: MyBatis入门系列（三）：动态 SQL 完全指南：告别硬编码，一个方法搞定所有查询
+date: 2026/6/16
 categories: 
   - MyBatis  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 

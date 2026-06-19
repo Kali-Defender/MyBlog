@@ -1,5 +1,6 @@
 ---
 title: Java高级-第一篇：JDBC操作数据库——为什么不用Statement？——PreparedStatement防SQL注入一篇搞懂
+date: 2026/6/11
 categories: 
   - JavaApply  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 

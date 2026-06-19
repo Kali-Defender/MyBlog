@@ -1,5 +1,6 @@
 ---
 title: Java基础·第5篇：Java多态——不用再写三个重载方法了！
+date: 2026/6/10
 categories: 
   - JavaSE  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
