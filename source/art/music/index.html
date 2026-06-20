@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="art-html">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎵 音乐馆 · 我的博客</title>
+  <title>🎵 音乐·视频馆 · 我的博客</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
+    body {
+      margin: 0;
+      background: #c49a6c; /* 浅木色底 */
+      color: #3e2e1f;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .art-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .art-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #5c3d2e;
+      margin-bottom: 0.3em;
+    }
+
+    .art-subtitle {
+      text-align: center;
+      color: #6b4c3b;
+      font-size: 1.1rem;
+      margin-bottom: 2em;
+    }
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 0 0 40px;
+    }
+
+    .art-card {
+      background: #faf0e6; /* 米白卡片，模拟木板上的纸 */
+      border-radius: 10px;
+      padding: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .art-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
     .music-card {
       display: flex;
       flex-direction: column;
@@ -13,157 +60,108 @@
       text-align: center;
       gap: 8px;
     }
-    .music-cover {
+
+    .video-wrapper {
+      position: relative;
       width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+      padding-top: 56.25%;
       border-radius: 8px;
-      background: #2a2a2a;
+      overflow: hidden;
+      background: #000;
     }
-    .music-player-controls {
-      margin-top: 6px;
-    }
-    .play-btn {
-      background: #d4a373;
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       border: none;
-      color: #1a1a1a;
-      padding: 8px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 14px;
+      border-radius: 8px;
+    }
+
+    .art-card-title {
+      margin: 8px 0 4px;
+      font-size: 1.1rem;
+      color: #5c3d2e;
+    }
+
+    .art-card-sub {
+      margin: 0;
+      color: #6b4c3b;
+      font-size: 0.9rem;
+    }
+
+    .art-door {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #3e2e1f;
+      color: #faf0e6;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
       transition: 0.2s;
     }
-    .play-btn:hover {
-      background: #e6b985;
-    }
-    .play-btn.playing {
-      background: #8b5a2b;
-      color: #fff;
+
+    .art-door:hover {
+      background: #5c3d2e;
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body class="art-body">
   <div class="art-container">
-    <h1 class="art-title">🎵 音乐馆</h1>
-    <p class="art-subtitle">旋律是记忆的容器</p>
-
-    <audio id="global-audio" preload="none"></audio>
+    <h1 class="art-title">🎵 音乐·视频馆</h1>
+    <p class="art-subtitle">视听双重体验 · 从旋律到画面</p>
 
     <div class="art-grid" id="music-grid">
-      <!-- 歌曲 1 -->
-      <div class="art-card music-card">
-        <div class="art-card-img-wrapper">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23333'/%3E%3Ctext x='200' y='200' text-anchor='middle' dy='.35em' fill='%23d4a373' font-size='60' font-family='Arial'%3E🌙%3C/text%3E%3C/svg%3E"
-               alt="月光森林" class="music-cover" loading="lazy">
-        </div>
-        <h2 class="art-card-title">月光森林</h2>
-        <p class="art-card-sub">未知歌手</p>
-        <div class="music-player-controls">
-          <button class="play-btn" data-audio-url="audio/forest.mp3" data-song="月光森林">
-            ▶ 播放
-          </button>
-        </div>
-      </div>
-
-      <!-- 歌曲 2 -->
-      <div class="art-card music-card">
-        <div class="art-card-img-wrapper">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23333'/%3E%3Ctext x='200' y='200' text-anchor='middle' dy='.35em' fill='%23d4a373' font-size='60' font-family='Arial'%3E🏙️%3C/text%3E%3C/svg%3E"
-               alt="城市的呼吸" class="music-cover" loading="lazy">
-        </div>
-        <h2 class="art-card-title">城市的呼吸</h2>
-        <p class="art-card-sub">未知歌手</p>
-        <div class="music-player-controls">
-          <button class="play-btn" data-audio-url="audio/city.mp3" data-song="城市的呼吸">
-            ▶ 播放
-          </button>
-        </div>
-      </div>
-
-      <!-- 歌曲 3 -->
-      <div class="art-card music-card">
-        <div class="art-card-img-wrapper">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%23333'/%3E%3Ctext x='200' y='200' text-anchor='middle' dy='.35em' fill='%23d4a373' font-size='60' font-family='Arial'%3E📜%3C/text%3E%3C/svg%3E"
-               alt="远方的诗" class="music-cover" loading="lazy">
-        </div>
-        <h2 class="art-card-title">远方的诗</h2>
-        <p class="art-card-sub">未知歌手</p>
-        <div class="music-player-controls">
-          <button class="play-btn" data-audio-url="audio/poem.mp3" data-song="远方的诗">
-            ▶ 播放
-          </button>
-        </div>
-      </div>
+      <!-- 卡片将由 JavaScript 动态生成 -->
     </div>
   </div>
 
-  <a href="../index.html" class="art-door" title="返回艺术馆">🚪</a>
+  <a href="../index.html" class="art-door" title="返回博客首页">🚪</a>
 
   <script>
-    (function() {
-      var audio = document.getElementById('global-audio');
-      var currentBtn = null;
+    // 动态加载视频数据
+    fetch('videos.json')
+      .then(response => {
+        if (!response.ok) throw new Error('加载失败');
+        return response.json();
+      })
+      .then(videos => {
+        const grid = document.getElementById('music-grid');
+        grid.innerHTML = ''; // 清空原有内容（如果有）
 
-      function stopCurrent() {
-        if (audio) {
-          audio.pause();
-          audio.currentTime = 0;
-        }
-        if (currentBtn) {
-          currentBtn.textContent = '▶ 播放';
-          currentBtn.classList.remove('playing');
-          currentBtn = null;
-        }
-      }
+        videos.forEach(video => {
+          const card = document.createElement('div');
+          card.className = 'art-card music-card';
 
-      function handlePlayClick(e) {
-        var btn = e.target;
-        if (!btn.classList.contains('play-btn')) return;
+          card.innerHTML = `
+            <div class="video-wrapper">
+              <iframe src="//player.bilibili.com/player.html?bvid=${video.bvid}&page=1"
+                      scrolling="no" border="0" frameborder="no" framespacing="0"
+                      allowfullscreen="true">
+              </iframe>
+            </div>
+            <h2 class="art-card-title">${video.title}</h2>
+            <p class="art-card-sub">${video.description}</p>
+          `;
 
-        var url = btn.getAttribute('data-audio-url');
-        var song = btn.getAttribute('data-song') || '未知歌曲';
-
-        if (btn === currentBtn && audio && !audio.paused) {
-          audio.pause();
-          btn.textContent = '▶ 播放';
-          btn.classList.remove('playing');
-          return;
-        }
-
-        stopCurrent();
-
-        audio.src = url;
-        audio.load();
-        audio.play().then(function() {
-          btn.textContent = '⏸ 暂停';
-          btn.classList.add('playing');
-          currentBtn = btn;
-        }).catch(function(err) {
-          alert('播放失败：找不到音频文件，请确认 audio 目录下的文件已就绪。');
+          grid.appendChild(card);
         });
-      }
-
-      document.getElementById('music-grid').addEventListener('click', handlePlayClick);
-
-      if (audio) {
-        audio.addEventListener('ended', function() {
-          if (currentBtn) {
-            currentBtn.textContent = '▶ 播放';
-            currentBtn.classList.remove('playing');
-            currentBtn = null;
-          }
-        });
-        audio.addEventListener('error', function() {
-          if (currentBtn) {
-            currentBtn.textContent = '▶ 播放';
-            currentBtn.classList.remove('playing');
-            alert('音频文件加载错误，请检查 audio/forest.mp3 等文件是否存在。');
-            currentBtn = null;
-          }
-        });
-      }
-    })();
+      })
+      .catch(error => {
+        console.error('视频数据加载失败:', error);
+        // 如果加载失败，显示后备文字
+        document.getElementById('music-grid').innerHTML = '<p style="text-align:center; color:#5c3d2e;">视频加载失败，请稍后再试。</p>';
+      });
   </script>
 </body>
 </html>
