@@ -1,0 +1,26 @@
+[
+  {
+    "id": "dark_side",
+    "title": "The Dark Side of the Moon",
+    "artist": "Pink Floyd",
+    "cover": "https://via.placeholder.com/400x400/3e2a21/d4a373?text=Album+Cover",
+    "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    "audio_url_fallback": "",
+    "duration": 248,
+    "sort_order": 1,
+    "enabled": true,
+    "created_at": "2024-01-15"
+  },
+  {
+    "id": "ok_computer",
+    "title": "OK Computer",
+    "artist": "Radiohead",
+    "cover": "https://via.placeholder.com/400x400/5c3d2e/d4a373?text=Album+Cover",
+    "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    "audio_url_fallback": "",
+    "duration": 300,
+    "sort_order": 2,
+    "enabled": true,
+    "created_at": "2024-02-20"
+  }
+]

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="art-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星际穿越 · 电影详情</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .film-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .film-poster {
+      flex: 0 0 260px;
+      background: #2a2a2a;
+      border-radius: 10px;
+      text-align: center;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    .film-poster .placeholder-img {
+      width: 100%;
+      height: 380px;
+      background: linear-gradient(135deg, #0a1f3b, #1b3b5c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d4a373;
+      font-size: 48px;
+    }
+    .film-info {
+      flex: 1;
+      min-width: 280px;
+    }
+    .film-info h1 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .film-year {
+      color: #aaa;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .film-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    .film-meta span {
+      background: #333;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .film-desc {
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .btn-review {
+      display: inline-block;
+      padding: 10px 22px;
+      background: #d4a373;
+      color: #0a0a0a;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .btn-review:hover {
+      background: #e6b480;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: #d4a373;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.2s;
+    }
+    .back-link:hover {
+      border-bottom-color: #d4a373;
+    }
+  </style>
+</head>
+<body class="art-body">
+  <div class="art-container">
+    <div class="film-detail">
+      <div class="film-poster">
+        <!-- 占位图：可替换为实际电影海报 -->
+        <div class="placeholder-img">🌌</div>
+      </div>
+      <div class="film-info">
+        <h1>星际穿越</h1>
+        <p class="film-year">2014</p>
+        <div class="film-meta">
+          <span>导演：克里斯托弗·诺兰</span>
+          <span>类型：科幻 / 冒险</span>
+          <span>片长：169 分钟</span>
+        </div>
+        <p class="film-desc">
+          近未来的地球黄沙遍野，小麦、秋葵等基础农作物相继枯萎灭绝，人类每日在沙尘暴的肆虐下倒数着所剩不多的光景。在家务农的前NASA宇航员库珀接连在女儿墨菲的书房发现奇怪的重力场现象，随即得知某个未知区域内前NASA成员仍秘密在进行拯救人类的计划。
+        </p>
+        <a href="review-list.html" class="btn-review">📝 查看影评</a>
+        <br>
+        <a href="../index.html" class="back-link">← 返回艺术馆</a>
+      </div>
+    </div>
+  </div>
+  <a href="../index.html" class="art-door" title="返回艺术馆">🚪</a>
+</body>
+</html>

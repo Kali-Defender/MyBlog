@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="art-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>肖申克的救赎 · 影视馆</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .film-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .film-poster {
+      width: 260px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: #2a2a2a;
+    }
+    .film-info {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .film-title {
+      font-size: 28px;
+      margin: 0;
+    }
+    .film-meta {
+      color: #aaa;
+      font-size: 14px;
+    }
+    .film-rating {
+      color: #d4a373;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .review-list-link {
+      display: inline-block;
+      background: #d4a373;
+      color: #1a1a1a;
+      padding: 8px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
+      margin: 8px 0;
+      align-self: flex-start;
+    }
+    .review-list-link:hover {
+      background: #e8c19a;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #d4a373;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.2s;
+    }
+    .back-link:hover {
+      border-bottom-color: #d4a373;
+    }
+  </style>
+</head>
+<body class="art-body">
+  <div class="art-container">
+    <div class="film-detail">
+      <!--
+        ==================== 如何替换海报？ ====================
+        1. 准备一张图片，例如 “shawshank.jpg”，放到本文件夹下
+           (即 D:\MyBlog\art\film\ 目录，与 film1.html 同级)
+        2. 把下方 src 里的 data:image/svg... 一大串替换成 "shawshank.jpg"
+        3. 即可显示本地海报
+        ======================================================
+      -->
+      <img 
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='390'%3E%3Crect width='260' height='390' fill='%23333'/%3E%3Ctext x='130' y='195' text-anchor='middle' dy='.35em' fill='%23d4a373' font-size='60' font-family='Arial'%3E🎬%3C/text%3E%3C/svg%3E"
+        alt="肖申克的救赎海报" class="film-poster">
+
+      <div class="film-info">
+        <h1 class="film-title">肖申克的救赎</h1>
+        <p class="film-meta">导演：弗兰克·德拉邦特 · 1994 · 剧情 / 犯罪</p>
+        <p class="film-rating">⭐ 9.7 / 10</p>
+
+        <!-- 点击进入观后感列表 -->
+        <a href="review-list.html?film=1" class="review-list-link">📝 查看全部观后感</a>
+
+        <a href="index.html" class="back-link">← 返回影视墙</a>
+      </div>
+    </div>
+  </div>
+  <a href="../index.html" class="art-door" title="返回艺术馆">🚪</a>
+</body>
+</html>

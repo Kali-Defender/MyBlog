@@ -1,0 +1,259 @@
+/* === 艺术馆全局 === */
+.art-html {
+  margin: 0;
+  padding: 0;
+  background-color: #1a120b;
+  font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+.art-body {
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.art-container {
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+  color: #ede0d4;
+}
+
+.art-title {
+  font-size: 3rem;
+  margin-bottom: 0.2em;
+  color: #d4a373;
+}
+
+.art-subtitle {
+  font-size: 1.2rem;
+  color: #b08968;
+  margin-bottom: 3rem;
+}
+
+/* 卡片网格 */
+.art-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.art-card {
+  background: #2c1e16;
+  border-radius: 24px;
+  padding: 1.5rem;
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.art-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(212, 163, 115, 0.3);
+}
+
+.art-card-img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  background: #3a2c21;
+}
+
+.art-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.art-card-title {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+  color: #d4a373;
+}
+
+.art-card-sub {
+  font-size: 0.95rem;
+  color: #9c7a5c;
+  margin-bottom: 1rem;
+}
+
+.art-btn {
+  display: inline-block;
+  background: #d4a373;
+  color: #1a120b;
+  padding: 0.6rem 2rem;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.art-card:hover .art-btn {
+  background: #b07948;
+}
+
+/* 门控件（通用） */
+.art-door {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 3rem;
+  text-decoration: none;
+  background: rgba(44, 30, 22, 0.8);
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  transition: transform 0.2s, background 0.2s;
+  z-index: 999;
+}
+
+.art-door:hover {
+  background: rgba(212, 163, 115, 0.9);
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ===== 音乐馆样式（新增） ===== */
+.music-html {
+  margin: 0;
+  padding: 0;
+  background-color: #1a120b;
+  font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+.music-body {
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  color: #ede0d4;
+}
+
+.music-title {
+  font-size: 3rem;
+  margin-bottom: 0.2em;
+  color: #d4a373;
+}
+
+.music-subtitle {
+  font-size: 1.2rem;
+  color: #b08968;
+  margin-bottom: 3rem;
+}
+
+.music-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.music-item {
+  background: #2c1e16;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: background 0.2s;
+}
+
+.music-item:hover {
+  background: #3a2c21;
+}
+
+.music-cover {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #3a2c21;
+  flex-shrink: 0;
+}
+
+.music-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.music-info {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.music-info h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #d4a373;
+}
+
+.music-info p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: #9c7a5c;
+}
+
+.music-play-btn {
+  background: #d4a373;
+  border: none;
+  color: #1a120b;
+  font-weight: bold;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.music-play-btn:hover {
+  background: #b07948;
+}
+
+/* Toast 样式（供 showToast 使用） */
+.art-toast {
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  background: #2c1e16;
+  color: #ede0d4;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  z-index: 9999;
+  font-size: 0.95rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.art-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.art-toast.error {
+  background: #5c2b2b;
+  color: #f5c6c6;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人艺术馆 - 四板块入口</title>
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <style>
+       body {
+      margin: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      min-height: 100vh;
+    }
+    .art-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .art-container h1 {
+      color: #ffffff;
+      font-size: 36px;
+    }
+    .art-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .art-card {
+      background: #2a2a2a;
+      border-radius: 16px;
+      padding: 30px 24px;
+      flex: 1 1 220px;
+      max-width: 260px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    .art-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+      border-radius: 16px;
+    }
+    .art-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    /* 每个卡片单独的背景图 (Unsplash 免费占位图) */
+    .art-card:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&h=300&fit=crop'); }
+    .art-card:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=300&fit=crop'); }
+    .art-card:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?w=400&h=300&fit=crop'); }
+    .art-card:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=faces'); }
+
+    .art-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    }
+    .art-icon {
+      font-size: 56px;
+      margin-bottom: 16px;
+    }
+    .art-card h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+    .art-card p {
+      color: #aaa;
+      font-size: 14px;
+      margin: 0;
+    }
+    .home-link {
+      display: block;
+      text-align: center;
+      margin: 30px 0;
+      color: #d4a373;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.2s;
+    }
+    .home-link:hover {
+      border-bottom-color: #d4a373;
+    }
+  </style>
+</head>
+<body>
+  <div class="art-container">
+    <h1 style="text-align:center; margin-bottom:20px;">🎨 个人艺术馆</h1>
+    <div class="art-gallery">
+      <a href="movie/index.html" class="art-card">
+        <div class="art-icon">🎬</div>
+        <h2>影视馆</h2>
+        <p>观影记录与影评</p>
+      </a>
+      <a href="music/index.html" class="art-card">
+        <div class="art-icon">🎵</div>
+        <h2>音乐馆</h2>
+        <p>专辑收藏与乐评</p>
+      </a>
+      <a href="#" class="art-card" onclick="alert('书籍馆尚未开放')">
+        <div class="art-icon">📚</div>
+        <h2>书籍馆</h2>
+        <p>待开放</p>
+      </a>
+      <a href="#" class="art-card" onclick="alert('思想风暴尚未开放')">
+        <div class="art-icon">💭</div>
+        <h2>思想风暴</h2>
+        <p>待开放</p>
+      </a>
+    </div>
+    <a href="/" class="home-link">← 返回博客首页</a>
+  </div>
+</body>
+</html>

@@ -22,7 +22,7 @@ menu:
   归档页: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
-  思想风暴: /categories/思想风暴/ || fas fa-brain
+  个人艺术馆: /art/ || fas fa-palette
   关于: /about/ || fas fa-user
   # 还可能有一些注释掉的示例
 
