@@ -3,101 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎵 音乐·视频馆 · 我的博客</title>
+  <title>🎵 音乐·视频馆</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
     body {
       margin: 0;
-      background: #c49a6c; /* 浅木色底 */
-      color: #3e2e1f;
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: #1a1a1a;
+      color: #e0e0e0;
+      font-family: "Microsoft YaHei", "苹方", "PingFang SC", sans-serif;
     }
 
-    .art-container {
-      max-width: 1200px;
+    .music-container {
+      max-width: 1100px;
       margin: 0 auto;
       padding: 40px 20px;
     }
 
-    .art-title {
+    .music-title {
       text-align: center;
-      font-size: 2.5rem;
-      color: #5c3d2e;
-      margin-bottom: 0.3em;
+      font-size: 2.8rem;
+      color: #4a3828;
+      margin-bottom: 0.2em;
     }
 
-    .art-subtitle {
+    .music-subtitle {
       text-align: center;
-      color: #6b4c3b;
+      color: #6b5a4a;
       font-size: 1.1rem;
-      margin-bottom: 2em;
+      margin-bottom: 2.5em;
     }
 
-    .art-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-      padding: 0 0 40px;
-    }
-
-    .art-card {
-      background: #faf0e6; /* 米白卡片，模拟木板上的纸 */
-      border-radius: 10px;
-      padding: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .art-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    .music-card {
+    .video-list {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 8px;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
     }
 
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      border-radius: 8px;
+    .video-card {
+      background: #fffaf0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       overflow: hidden;
-      background: #000;
+      width: 320px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
     }
 
-    .video-wrapper iframe {
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .video-cover {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: #e0d6c8;
+      overflow: hidden;
+    }
+
+    .video-cover img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 当封面图加载失败时，显示占位样式 */
+    .video-cover .placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #d9cdb8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8b7765;
+      font-size: 1rem;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+      word-break: break-word;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .video-card:hover .play-overlay {
+      background: rgba(0,0,0,0.5);
+    }
+
+    .play-icon {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .video-cover.playing .play-overlay,
+    .video-cover.playing img,
+    .video-cover.playing .placeholder {
+      display: none;
+    }
+
+    .video-cover iframe {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       border: none;
-      border-radius: 8px;
     }
 
-    .art-card-title {
-      margin: 8px 0 4px;
-      font-size: 1.1rem;
-      color: #5c3d2e;
+    .video-info {
+      padding: 16px;
     }
 
-    .art-card-sub {
+    .video-info h3 {
+      margin: 0 0 6px;
+      font-size: 1.2rem;
+      color: #4a3828;
+    }
+
+    .video-info p {
       margin: 0;
-      color: #6b4c3b;
       font-size: 0.9rem;
+      color: #8b7765;
     }
 
-    .art-door {
+    .door-music {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #3e2e1f;
-      color: #faf0e6;
+      background: #4a3828;
+      color: #f2e6d9;
       width: 50px;
       height: 50px;
       border-radius: 50%;
@@ -106,62 +160,124 @@
       justify-content: center;
       font-size: 1.5rem;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       transition: 0.2s;
     }
 
-    .art-door:hover {
-      background: #5c3d2e;
+    .door-music:hover {
+      background: #6b5a4a;
       transform: scale(1.1);
+    }
+
+    @media (max-width: 700px) {
+      .video-card {
+        width: 90%;
+      }
     }
   </style>
 </head>
-<body class="art-body">
-  <div class="art-container">
-    <h1 class="art-title">🎵 音乐·视频馆</h1>
-    <p class="art-subtitle">视听双重体验 · 从旋律到画面</p>
+<body>
+  <div class="music-container">
+    <h1 class="music-title">🎵 音乐·视频馆</h1>
+    <p class="music-subtitle">视听双重体验 · 从旋律到画面</p>
 
-    <div class="art-grid" id="music-grid">
-      <!-- 卡片将由 JavaScript 动态生成 -->
-    </div>
+    <div class="video-list" id="video-list"></div>
   </div>
 
-  <a href="../index.html" class="art-door" title="返回博客首页">🚪</a>
+  <a href="../index.html" class="door-music" title="返回博客首页">🚪</a>
 
   <script>
-    // 动态加载视频数据
-    fetch('videos.json')
-      .then(response => {
-        if (!response.ok) throw new Error('加载失败');
-        return response.json();
-      })
-      .then(videos => {
-        const grid = document.getElementById('music-grid');
-        grid.innerHTML = ''; // 清空原有内容（如果有）
-
-        videos.forEach(video => {
+    fetch('./videos.json')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('video-list');
+        data.forEach(video => {
           const card = document.createElement('div');
-          card.className = 'art-card music-card';
-
-          card.innerHTML = `
-            <div class="video-wrapper">
-              <iframe src="//player.bilibili.com/player.html?bvid=${video.bvid}&page=1"
-                      scrolling="no" border="0" frameborder="no" framespacing="0"
-                      allowfullscreen="true">
-              </iframe>
-            </div>
-            <h2 class="art-card-title">${video.title}</h2>
-            <p class="art-card-sub">${video.description}</p>
-          `;
-
-          grid.appendChild(card);
+          card.className = 'video-card';
+          renderCard(card, video);
+          list.appendChild(card);
         });
       })
-      .catch(error => {
-        console.error('视频数据加载失败:', error);
-        // 如果加载失败，显示后备文字
-        document.getElementById('music-grid').innerHTML = '<p style="text-align:center; color:#5c3d2e;">视频加载失败，请稍后再试。</p>';
+      .catch(() => {
+        document.getElementById('video-list').innerHTML =
+          '<p style="text-align:center; color:#8b7765;">视频列表加载失败，请稍后重试。</p>';
       });
+
+    function renderCard(card, video) {
+      // 1. 先在卡片中构建占位内容，立刻加入 DOM
+      const coverDiv = document.createElement('div');
+      coverDiv.className = 'video-cover';
+      coverDiv.setAttribute('data-bvid', video.bvid);
+
+      // 创建占位元素（可能在封面加载失败时显示）
+      const placeholder = document.createElement('div');
+      placeholder.className = 'placeholder';
+      placeholder.textContent = video.title;
+      coverDiv.appendChild(placeholder);
+
+      // 创建播放按钮图层
+      const overlay = document.createElement('div');
+      overlay.className = 'play-overlay';
+      overlay.innerHTML = '<span class="play-icon">▶️</span>';
+      coverDiv.appendChild(overlay);
+
+      const info = document.createElement('div');
+      info.className = 'video-info';
+      info.innerHTML = `<h3>${video.title}</h3><p>${video.description || ''}</p>`;
+
+      card.appendChild(coverDiv);
+      card.appendChild(info);
+      document.getElementById('video-list').appendChild(card);
+
+      // 2. 加载封面图（按优先级）
+      // 如果 videos.json 里提供了 pic 字段，直接用
+      if (video.pic && video.pic.trim() !== '') {
+        setCoverImage(coverDiv, video.pic, video.title);
+      } else {
+        // 否则调用 B 站 API 获取封面
+        fetch(`https://api.bilibili.com/x/web-interface/view?bvid=${video.bvid}`)
+          .then(res => res.json())
+          .then(res => {
+            const coverUrl = res.data?.pic;
+            if (coverUrl) {
+              setCoverImage(coverDiv, coverUrl, video.title);
+            }
+            // 如果 API 没返回 pic，占位文字已显示，无需额外处理
+          })
+          .catch(() => {
+            // API 失败：保留占位文字，如果想更美观可以加个纯色背景
+            coverDiv.style.backgroundColor = '#d9cdb8';
+          });
+      }
+
+      // 点击封面加载 iframe
+      coverDiv.addEventListener('click', () => {
+        if (coverDiv.classList.contains('playing')) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://player.bilibili.com/player.html?bvid=${video.bvid}&page=1&autoplay=1`;
+        iframe.allowfullscreen = true;
+        coverDiv.appendChild(iframe);
+        coverDiv.classList.add('playing');
+      });
+    }
+
+    function setCoverImage(container, url, title) {
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = title;
+      img.loading = 'lazy';
+      // 如果封面图加载成功，移除占位文字
+      img.onload = () => {
+        // 移除 placeholder 元素
+        const placeholder = container.querySelector('.placeholder');
+        if (placeholder) placeholder.remove();
+      };
+      // 如果图片加载失败（比如 404），保留占位文字
+      img.onerror = () => {
+        // 什么都不做，占位文字会继续显示
+      };
+      container.insertBefore(img, container.firstChild); // 放到最前面，但在占位文字之前
+    }
   </script>
 </body>
 </html>
