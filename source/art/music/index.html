@@ -8,7 +8,6 @@
   <style>
     body {
       margin: 0;
-      /* 深棕色背景 */
       background: #2c1e16;
       color: #e6d7c2;
       font-family: "Microsoft YaHei", "苹方", "PingFang SC", sans-serif;
@@ -41,7 +40,6 @@
       justify-content: center;
     }
 
-    /* 深棕色卡片 */
     .video-card {
       background: #3d2b20;
       border-radius: 6px;
@@ -84,7 +82,7 @@
       align-items: center;
       justify-content: center;
       color: #d1b99a;
-      font-size: 1rem;
+      font-size: 2rem; /* 从 1rem 增大到 1.6rem */
       text-align: center;
       padding: 10px;
       box-sizing: border-box;
@@ -110,9 +108,9 @@
 
     .play-icon {
       font-size: 3rem;
-      color: #f0e4d4;
+      color: #e2cfb6;
       text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-      opacity: 0.9;
+      opacity: 0.85;
       pointer-events: none;
     }
 
@@ -147,7 +145,6 @@
       color: #c9b496;
     }
 
-    /* 返回按钮：米白色圆形 */
     .door-music {
       position: fixed;
       bottom: 20px;
@@ -181,7 +178,7 @@
 <body>
   <div class="music-container">
     <h1 class="music-title">🎵 音乐·视频馆</h1>
-    <p class="music-subtitle">点击封面播放 · 不再自动出声</p>
+    <p class="music-subtitle">视听双重体验 · 从旋律到画面</p>
 
     <div class="video-list" id="video-list"></div>
   </div>
@@ -217,7 +214,7 @@
 
       const overlay = document.createElement('div');
       overlay.className = 'play-overlay';
-      overlay.innerHTML = '<span class="play-icon">▶️</span>';
+      overlay.innerHTML = '<span class="play-icon">\u25B6\uFE0E</span>';
       coverDiv.appendChild(overlay);
 
       const info = document.createElement('div');
@@ -246,6 +243,14 @@
 
       coverDiv.addEventListener('click', () => {
         if (coverDiv.classList.contains('playing')) return;
+
+        const allCovers = document.querySelectorAll('.video-cover.playing');
+        allCovers.forEach(playingCover => {
+          const iframe = playingCover.querySelector('iframe');
+          if (iframe) iframe.remove();
+          playingCover.classList.remove('playing');
+        });
+
         const iframe = document.createElement('iframe');
         iframe.src = `https://player.bilibili.com/player.html?bvid=${video.bvid}&page=1&autoplay=1`;
         iframe.allowfullscreen = true;
