@@ -8,8 +8,9 @@
   <style>
     body {
       margin: 0;
-      background: #1a1a1a;
-      color: #e0e0e0;
+      /* 深棕色背景 */
+      background: #2c1e16;
+      color: #e6d7c2;
       font-family: "Microsoft YaHei", "苹方", "PingFang SC", sans-serif;
     }
 
@@ -22,13 +23,13 @@
     .music-title {
       text-align: center;
       font-size: 2.8rem;
-      color: #4a3828;
+      color: #f0e4d4;
       margin-bottom: 0.2em;
     }
 
     .music-subtitle {
       text-align: center;
-      color: #6b5a4a;
+      color: #c9b496;
       font-size: 1.1rem;
       margin-bottom: 2.5em;
     }
@@ -40,10 +41,11 @@
       justify-content: center;
     }
 
+    /* 深棕色卡片 */
     .video-card {
-      background: #fffaf0;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: #3d2b20;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       overflow: hidden;
       width: 320px;
       transition: transform 0.2s, box-shadow 0.2s;
@@ -51,14 +53,14 @@
     }
 
     .video-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
     }
 
     .video-cover {
       position: relative;
       padding-bottom: 56.25%;
-      background: #e0d6c8;
+      background: #503a2c;
       overflow: hidden;
     }
 
@@ -71,18 +73,17 @@
       object-fit: cover;
     }
 
-    /* 当封面图加载失败时，显示占位样式 */
     .video-cover .placeholder {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: #d9cdb8;
+      background: #5e4332;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #8b7765;
+      color: #d1b99a;
       font-size: 1rem;
       text-align: center;
       padding: 10px;
@@ -96,7 +97,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.4);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -104,13 +105,13 @@
     }
 
     .video-card:hover .play-overlay {
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
     }
 
     .play-icon {
       font-size: 3rem;
-      color: white;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      color: #f0e4d4;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
       opacity: 0.9;
       pointer-events: none;
     }
@@ -131,27 +132,28 @@
     }
 
     .video-info {
-      padding: 16px;
+      padding: 14px;
     }
 
     .video-info h3 {
-      margin: 0 0 6px;
-      font-size: 1.2rem;
-      color: #4a3828;
+      margin: 0 0 4px;
+      font-size: 1.1rem;
+      color: #f0e4d4;
     }
 
     .video-info p {
       margin: 0;
-      font-size: 0.9rem;
-      color: #8b7765;
+      font-size: 0.85rem;
+      color: #c9b496;
     }
 
+    /* 返回按钮：米白色圆形 */
     .door-music {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #4a3828;
-      color: #f2e6d9;
+      background: #e6d7c2;
+      color: #2c1e16;
       width: 50px;
       height: 50px;
       border-radius: 50%;
@@ -160,12 +162,12 @@
       justify-content: center;
       font-size: 1.5rem;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       transition: 0.2s;
     }
 
     .door-music:hover {
-      background: #6b5a4a;
+      background: #d4bea8;
       transform: scale(1.1);
     }
 
@@ -179,7 +181,7 @@
 <body>
   <div class="music-container">
     <h1 class="music-title">🎵 音乐·视频馆</h1>
-    <p class="music-subtitle">视听双重体验 · 从旋律到画面</p>
+    <p class="music-subtitle">点击封面播放 · 不再自动出声</p>
 
     <div class="video-list" id="video-list"></div>
   </div>
@@ -200,22 +202,19 @@
       })
       .catch(() => {
         document.getElementById('video-list').innerHTML =
-          '<p style="text-align:center; color:#8b7765;">视频列表加载失败，请稍后重试。</p>';
+          '<p style="text-align:center; color:#c9b496;">视频列表加载失败，请稍后重试。</p>';
       });
 
     function renderCard(card, video) {
-      // 1. 先在卡片中构建占位内容，立刻加入 DOM
       const coverDiv = document.createElement('div');
       coverDiv.className = 'video-cover';
       coverDiv.setAttribute('data-bvid', video.bvid);
 
-      // 创建占位元素（可能在封面加载失败时显示）
       const placeholder = document.createElement('div');
       placeholder.className = 'placeholder';
       placeholder.textContent = video.title;
       coverDiv.appendChild(placeholder);
 
-      // 创建播放按钮图层
       const overlay = document.createElement('div');
       overlay.className = 'play-overlay';
       overlay.innerHTML = '<span class="play-icon">▶️</span>';
@@ -229,12 +228,9 @@
       card.appendChild(info);
       document.getElementById('video-list').appendChild(card);
 
-      // 2. 加载封面图（按优先级）
-      // 如果 videos.json 里提供了 pic 字段，直接用
       if (video.pic && video.pic.trim() !== '') {
         setCoverImage(coverDiv, video.pic, video.title);
       } else {
-        // 否则调用 B 站 API 获取封面
         fetch(`https://api.bilibili.com/x/web-interface/view?bvid=${video.bvid}`)
           .then(res => res.json())
           .then(res => {
@@ -242,15 +238,12 @@
             if (coverUrl) {
               setCoverImage(coverDiv, coverUrl, video.title);
             }
-            // 如果 API 没返回 pic，占位文字已显示，无需额外处理
           })
           .catch(() => {
-            // API 失败：保留占位文字，如果想更美观可以加个纯色背景
-            coverDiv.style.backgroundColor = '#d9cdb8';
+            coverDiv.style.backgroundColor = '#5e4332';
           });
       }
 
-      // 点击封面加载 iframe
       coverDiv.addEventListener('click', () => {
         if (coverDiv.classList.contains('playing')) return;
         const iframe = document.createElement('iframe');
@@ -266,17 +259,12 @@
       img.src = url;
       img.alt = title;
       img.loading = 'lazy';
-      // 如果封面图加载成功，移除占位文字
       img.onload = () => {
-        // 移除 placeholder 元素
         const placeholder = container.querySelector('.placeholder');
         if (placeholder) placeholder.remove();
       };
-      // 如果图片加载失败（比如 404），保留占位文字
-      img.onerror = () => {
-        // 什么都不做，占位文字会继续显示
-      };
-      container.insertBefore(img, container.firstChild); // 放到最前面，但在占位文字之前
+      img.onerror = () => {};
+      container.insertBefore(img, container.firstChild);
     }
   </script>
 </body>
