@@ -959,7 +959,7 @@ mermaid:
   # Write Mermaid diagrams using code blocks
   code_write: true
   # built-in themes: default / forest / dark / neutral
-  version: 11.4.0 
+  version: 10.9.1
   theme:
     light: default
     dark: dark
