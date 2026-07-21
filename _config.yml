@@ -5,8 +5,8 @@
 # Site
 title: 七夏的树洞🐿️
 subtitle: '落羽拾光'
-description: '记录技术与生活的个人博客'
-keywords: '技术,博客,生活'
+description: '计算机本科生技术成长记录｜专注后端开发、AI 实践、开发环境踩坑排错'
+keywords: '技术,后端开发,AI,开发环境,踩坑排错'
 author: 七夏
 language: zh-CN
 timezone: Asia/Shanghai
@@ -102,3 +102,5 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+sitemap:
+  path: sitemap.xml
