@@ -2,11 +2,9 @@
 title: Java基础·第3篇：Java封装——为什么要把数据藏起来？
 date: 2026/6/10
 categories: 
-  - JavaSE  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - 面向对象
-  - Java
-  - 封装
+  - JavaSE
 cover: /img/JavaSE_3/package.png
 ---
 #### 前言

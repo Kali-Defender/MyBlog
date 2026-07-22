@@ -2,19 +2,11 @@
 title: Spring Boot 从零入门：请求响应、三层架构与 IOC、DI 实践总结
 date: 2026/6/11
 categories: 
-  - JavaWeb  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 后端开发 # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - Spring Boot
 cover: /img/Web_1/p1.png
 ---
-# Spring Boot 从零入门：请求响应、三层架构与 IOC/DI 实践总结
-
-
-
-
-
----
-
 ## 1. 项目搭建与第一个接口
 
 使用 IDEA 的 Spring Initializr 创建项目，依赖仅选择 **Spring Web**。  

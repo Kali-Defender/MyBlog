@@ -2,9 +2,9 @@
 title: MySQL笔记·第4篇：多表查询详解——内连接、左连接、自连接一篇搞定
 date: 2026/6/11
 categories: 
-  - Mysql  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - Mysql
+  - MySQL
 cover: /img/Mysql_4/p1.png
 ---
 
@@ -12,7 +12,6 @@ cover: /img/Mysql_4/p1.png
 ### 一、多表查询是什么？
 
 简单来说，在实际的项目管理中，数据库的查询不仅仅是查询一张表的数据，是两张或两张以上的表，这时候是要用到多表查询。
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/3c790d39619d4239b429a962581d771a.png#pic_center)
 
 
 
@@ -44,7 +43,7 @@ INSERT INTO score VALUES (1, 1, 90), (2, 1, 85), (3, 2, 78);
 
 ---
 ### 二、三种常用的多表查询
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/eac6b400dc1b438e9a8951116b803ff5.png#pic_center)
+![](/img/Mysql_4/p1.png)
 
 #### 1、内连接（INNER JOIN）：两边都要有
 
@@ -82,7 +81,6 @@ SELECT * FROM student LEFT JOIN score ON student.id = score.student_id;
 | 王五 | NULL |
 
 从结果来看，与内连接不同的是**王五出现了，只是成绩是NULL。** 原因是在左连接查询中，左表的数据都会被查询到，右表有能匹配上的显示，没有就显示空值。
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/77f9c8da5136493e9ea3eea64b42fbb8.png)
 
 > **一句话记忆：左连接 = 左表全留，右表有就带，没有就空**
 
@@ -124,4 +122,3 @@ LEFT JOIN employee m ON e.manager_id = m.id;
 
 ### 三、最后的话
 关于多表查询的内容就总结学习完毕了，如果对您有帮助的话，请一键三连！！！ 最后感谢你的查阅！！！
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/b2b809a814d54daa932efdcd250c6582.gif#pic_center)

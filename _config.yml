@@ -104,3 +104,9 @@ deploy:
   type: ''
 sitemap:
   path: sitemap.xml
+feed:
+  type: atom
+  path: atom.xml
+  limit: 30  # 展示最新30篇文章
+  hub:
+  content: true

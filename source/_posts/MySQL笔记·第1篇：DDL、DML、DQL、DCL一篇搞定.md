@@ -2,9 +2,9 @@
 title: MySQL笔记·第1篇：DDL、DML、DQL、DCL一篇搞定
 date: 2026/6/11
 categories: 
-  - Mysql  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - Mysql
+  - MySQL
 cover: /img/Mysql_1/p1.png
 ---
 

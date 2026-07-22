@@ -2,10 +2,9 @@
 title: Java基础·第6篇：Java接口——能飞的就实现Flyer，能游的就实现Swimmer
 date: 2026/6/16
 categories: 
-  - JavaSE  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - Java
-  - 接口
+  - JavaSE
 cover: /img/JavaSE_6/port.png
 ---
 ## 引入

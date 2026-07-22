@@ -2,10 +2,10 @@
 title: Python 二级备考笔记（三）：函数和代码复用
 date: 2026/7/21
 categories: 
-  - Python二级备考  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 编程入门  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - 计算机二级
-  - Python
+  - Python二级
+  - Python基础
 cover: /img/python3/p1.png
 ---
 ## 1、函数的定义

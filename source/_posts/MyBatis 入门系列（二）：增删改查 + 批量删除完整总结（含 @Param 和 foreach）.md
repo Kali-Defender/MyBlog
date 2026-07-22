@@ -2,12 +2,11 @@
 title: MyBatis 入门系列（二）：增删改查 + 批量删除完整总结（含 @Param 和 foreach）
 date: 2026/6/10
 categories: 
-  - MyBatis  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - Mybatis
 cover: /img/Mybatis_2/p1.png
 ---
-# MyBatis 增删改查 + 批量删除完整总结（含 @Param 和 foreach）
 学习完Mybatis的基本操作流程之后，因为Mybatis本身就是用Java操作数据库的一项技术，我们躲不掉的要学习在Mybatis中怎么对数据库进行增删改查。接下来直接上实战：
 
 

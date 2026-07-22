@@ -2,10 +2,12 @@
 title: Git与GitHub从零到一完整演练
 date: 2026/6/16
 categories: 
-  - 工具  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 环境运维  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - Git
-  - Github
+  - GitHub
+  - 开发工具
+  - SSH
 cover: /img/Git_2/p1.png
 ---
 # Git学习实战篇——Git与GitHub从零到一完整演练

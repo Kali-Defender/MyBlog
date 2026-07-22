@@ -2,13 +2,12 @@
 title: VMware虚拟机代理配置与网络排障完全指南：从Git Clone超时到成功解决
 date: 2026/7/20
 categories: 
-  - 虚拟机  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 环境运维  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - Clash
+  - VMware
 cover: /img/daili/p1.png
 ---
-# VMware虚拟机代理配置与网络排障完全指南：从Git Clone超时到成功解决
-
 > **适用场景**：宿主机（Windows）已配置代理工具，VMware虚拟机（Ubuntu）能Ping通外网或显示已连接，但执行`git clone`长时间卡顿或报错`Failed to connect`。
 
 ---

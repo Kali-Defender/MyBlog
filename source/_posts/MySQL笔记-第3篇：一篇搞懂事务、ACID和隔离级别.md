@@ -2,9 +2,9 @@
 title: MySQL笔记-第3篇：一篇搞懂事务、ACID和隔离级别
 date: 2026/6/11
 categories: 
-  - Mysql  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - Mysql
+  - MySQL
 cover: /img/Mysql_3/p1.png
 ---
 
@@ -12,8 +12,6 @@ cover: /img/Mysql_3/p1.png
 ### 一、事务是什么？
 
 简单来说，**事务就是把完成同一目标的多个SQL操作打包成一个整体**，举个例子：你给朋友转账100块。
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/9a856cb11c2643ccbf02309547c68264.png#pic_center)
-
 
 对于熟悉SQL的我们来说，这个需求很快就可以完成。
 ```sql
@@ -27,7 +25,6 @@ UPDATE account SET money = money + 100 WHERE id = 2;  -- 朋友加钱
 
 
 ### 二、怎么用？
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/357339931a494f2497c21d6261b3409d.png#pic_center)
 
 ```sql
 START TRANSACTION;           -- 开启事务
@@ -83,7 +80,7 @@ COMMIT;
 ### 五、隔离级别
 
 事务之间会互相影响，会造成一些不可避免的问题
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/1a817c31bddc4d01a0d39bcfe57d3a45.png#pic_center)
+[图解](/img/Mysql_3/p2.png)
 为了解决这些问题，我们提出了事务的四个隔离等级。
 
 | 隔离级别 | 能解决 | 仍有问题 | 性能 |
@@ -95,14 +92,9 @@ COMMIT;
 
 从表格可以明显看到，隔离等级越高，性能越差，对整个数据库的管理效率越低，所以**一句话建议：MySQL默认的“可重复读”就够了，别乱改。**
 
-## 六、最后的话
+### 六、最后的话
 关于数据库的事务的知识总结完毕，如果对你有帮助的话，可以一键三连！！！最后感谢你的查阅！！！
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/988d51c596064ca3ada2e942c1af7169.gif#pic_center)
-
-
----
 
 
 
----
 

@@ -2,14 +2,13 @@
 title: MySQL笔记·第2篇：MySQL外键——阿里巴巴为什么禁止使用？外键的坑与替代方案
 date: 2026/6/11
 categories: 
-  - Mysql  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - Mysql
+  - MySQL
 cover: /img/Mysql_2/p1.png
 ---
 
 ### 一、外键是什么？
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/15522476cc2c4156ae0da18db06a1bb6.jpeg#pic_center)
 
 简单说，外键就是用来保证“两张表的数据能对上”。比如订单表的user_id必须指向用户表里存在的id。
 
@@ -21,7 +20,6 @@ FOREIGN KEY (user_id) REFERENCES user(id)
 听起来很完美，对吧？那为什么阿里巴巴开发手册明确写着“不得使用外键”？这篇文章讲清楚外键的坑和替代方案
 
 ### 二、为什么不推荐用外键？
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/e4dc7e6d24c24ba4ad8ceb9562df5221.png#pic_center)
 
 外键像个负责任的保安，每次有人进出都查证件——安全是安全了，但门口排起了长队。
 
@@ -59,7 +57,6 @@ FOREIGN KEY (user_id) REFERENCES user(id)
 ---
 
 ### 三、不用外键，怎么保证数据完整性？
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/166e4267d5264354a3a0935969b37acc.png#pic_center)
 
 大厂的做法是：不设保安，装一套门禁系统。
 
@@ -88,7 +85,6 @@ public void createOrder(int userId, BigDecimal amount) {
 ---
 
 ### 四、什么时候还可以用外键？
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/ad7fc40f89a34ae79584a597269d8f65.gif#pic_center)
 
 | 场景 | 判断 |
 |------|------|

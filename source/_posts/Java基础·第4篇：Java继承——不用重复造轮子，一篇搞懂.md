@@ -2,11 +2,9 @@
 title: Java基础·第4篇：Java继承——不用重复造轮子，一篇搞懂
 date: 2026/6/16
 categories: 
-  - JavaSE  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - 面向对象
-  - Java
-  - 继承
+  - JavaSE
 cover: /img/JavaSE_4/inherit.png
 ---
 
