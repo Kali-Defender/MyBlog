@@ -310,12 +310,12 @@ aside:
     content: |
       <div style="font-size: 14px; line-height: 1.6;">
         你好，我是 七夏 👋<br><br>
-        这个博客记录两件事：<strong>技术</strong> 与 <strong>生活</strong>。<br><br>
+        这个博客记录一件事：
         🔧 <strong>技术</strong>：编程 / 工具 / 踩坑笔记<br>
-        🌤️ <strong>生活</strong>：日常 / 思考 / 柔软的时刻<br><br>
+
         不追热点，不装深刻。<br>
-        只为记录一个普通工程师的成长与日常。<br><br>
-        欢迎你来，一起写代码，也一起好好生活。
+        只为记录一个普通工程师的成长。<br><br>
+        <strong>欢迎关注我的博客</strong>，一起学习，一起进步！<br>
       </div>
   card_recent_post:
     enable: true
@@ -1164,10 +1164,9 @@ CDN:
     content: |
       <div style="font-size: 14px; line-height: 1.6;">
         你好，我是 七夏 👋<br><br>
-        这个博客记录两件事：<strong>技术</strong> 与 <strong>生活</strong>。<br><br>
+        这个博客记录一件事：
         🔧 <strong>技术</strong>：编程 / 工具 / 踩坑笔记<br>
-        🌤️ <strong>生活</strong>：日常 / 思考 / 柔软的时刻<br><br>
         不追热点，不装深刻。<br>
-        只为记录一个普通工程师的成长与日常。<br><br>
-        欢迎你来，一起写代码，也一起好好生活。
+        只为记录一个普通工程师的成长。<br><br>
+        <strong>欢迎关注我的博客</strong>，一起学习，一起进步！<br>
       </div>
