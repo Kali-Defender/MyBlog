@@ -110,3 +110,8 @@ feed:
   limit: 30  # 展示最新30篇文章
   hub:
   content: true
+search:
+  path: search.xml
+  field: post
+  content: true
+

@@ -22,8 +22,9 @@ menu:
   归档页: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
-  个人艺术馆: /art/ || fas fa-palette
+  #个人艺术馆: /art/ || fas fa-palette
   关于: /about/ || fas fa-user
+  生活札记: /art/ || fas fa-palette
   # 还可能有一些注释掉的示例
 
   
@@ -499,27 +500,33 @@ search:
   # Choose: algolia_search / local_search / docsearch
   # leave it empty if you don't need search
   use: local_search
-  placeholder: 
+  placeholder: true
 
   # Algolia Search
   algolia_search:
     # Number of search results per page
     hitsPerPage: 6
 
-  # Local Search
-  local_search:
-    # Preload the search data when the page loads.
-    preload: false
-    # Show top n results per article, show all results by setting to -1
-    top_n_per_article: 1
-    # Unescape html strings to the readable one.
-    unescape: false
-    # Enable pagination for search results
-    pagination:
-      enable: false
-      # Number of search results per page
-      hitsPerPage: 8
-    CDN:
+local_search:
+  enable: true
+  # Preload the search data when the page loads.
+  preload: false
+  # Show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+  # Unescape html strings to the readable one.
+  unescape: false
+  # Enable pagination for search results
+  pagination:
+    enable: false
+    # Number of search results per page
+    hitsPerPage: 8
+  CDN:
+  # 搜索框占位文字、提示文案（关键）
+  labels:
+    input_placeholder: "搜索后端｜AI｜虚拟机｜操作系统笔记"
+    hits_empty: "未找到相关笔记，换个关键词试试"
+    hits_stats: "共找到 ${hits} 篇相关文章"
+
 
   # Docsearch
   # https://docsearch.algolia.com/
@@ -1083,8 +1090,10 @@ css_prefix: true
 
 inject:
   head:
-    
+  - <link rel="stylesheet" href="/css/search-hot.css">
   bottom:
+  - <script src="/js/search-hot.js"></script>
+
     
     
 
