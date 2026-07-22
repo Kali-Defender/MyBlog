@@ -4,7 +4,7 @@ date: 2026/6/16
 categories: 
   - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - Mybatis
+  - MyBatis
 cover: /img/Mybatis_1/p1.png
 ---
 > 适合完全零基础的新手，用最直白的语言讲清楚 MyBatis 是什么、怎么用，以及必须搞懂的 5 个核心问题。

@@ -4,7 +4,7 @@ date: 2026/6/16
 categories: 
   - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - Mybatis
+  - MyBatis
 cover: /img/Mybatis_3/p1.png
 ---
 ## 一、为什么需要动态 SQL？

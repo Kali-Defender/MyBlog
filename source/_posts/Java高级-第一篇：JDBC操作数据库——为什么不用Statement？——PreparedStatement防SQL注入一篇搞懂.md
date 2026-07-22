@@ -4,8 +4,6 @@ date: 2026/6/11
 categories: 
   - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - Java
-  - 数据库
   - JDBC
 cover: /img/Javaplus_1/p1.png
 ---
