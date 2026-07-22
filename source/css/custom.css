@@ -1,0 +1,171 @@
+:root {
+  /* 亮色模式：统一单色绿色，单层一体卡片 */
+  --card-green-light: #dff2d0;
+  --card-green-border-light: #78b34a;
+  --card-green-shadow-light: rgba(90, 140, 58, 0.18);
+  --card-green-hover-light: rgba(90, 140, 58, 0.30);
+  --text-title-light: #1e3f1d;
+  --text-body-light: #324a31;
+
+  /* 重点：覆盖右侧悬浮按钮原生变量 */
+  --btn-bg: var(--card-green-light);
+  --btn-bg-img: none; /* 清除自带渐变遮罩 */
+  --btn-color: var(--text-title-light);
+
+  /* 暗色模式 */
+  --card-green-dark: #2a4728;
+  --card-green-border-dark: #5a8c3a;
+  --card-green-shadow-dark: rgba(70, 107, 56, 0.22);
+  --card-green-hover-dark: rgba(70, 107, 56, 0.35);
+  --text-title-dark: #d1e9c4;
+  --text-body-dark: #b4c9ae;
+}
+
+/* 暗色模式单独覆盖按钮变量 */
+[data-theme="dark"] {
+  --btn-bg: var(--card-green-dark);
+  --btn-bg-img: none;
+  --btn-color: var(--text-title-dark);
+}
+
+/* ========== 首页文章卡片【单层一体化，核心修复】 ========== */
+.layout .recent-post-item {
+  position: relative;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  background: var(--card-green-light) !important;
+  border: 2px solid var(--card-green-border-light) !important;
+  box-shadow: 0 4px 14px var(--card-green-shadow-light) !important;
+  transition: all 0.32s ease;
+}
+/* hover 绑定最外层容器，整体一起上浮！不再分层 */
+.layout .recent-post-item:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-green-border-light) !important;
+  box-shadow: 0 8px 22px var(--card-green-hover-light) !important;
+}
+/* 清除内层容器独立背景，不要额外色块 */
+.layout .recent-post-item > div {
+  background: transparent !important;
+}
+/* 封面图片圆角适配外层卡片 */
+.recent-post-item .post_cover img {
+  border-radius: 16px !important;
+}
+/* 文字区域取消独立白底，继承卡片底色 */
+.recent-post-item .post-content,
+.recent-post-item .post-meta {
+  background: transparent !important;
+}
+/* ========== 侧边栏卡片 一体化 ========== */
+.card-widget {
+  background: var(--card-green-light) !important;
+  border: 2px solid var(--card-green-border-light) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 4px 14px var(--card-green-shadow-light) !important;
+  transition: all 0.32s ease;
+  position: relative;
+  overflow: hidden !important;
+}
+.card-widget:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px var(--card-green-hover-light) !important;
+}
+/* ========== 文字配色 ========== */
+.recent-post-item .post-title,
+.card-widget .widget-title {
+  color: var(--text-title-light) !important;
+}
+.recent-post-item .post-excerpt {
+  color: var(--text-body-light) !important;
+}
+/* 角落小草装饰 */
+.layout .recent-post-item::after,
+.card-widget::after {
+  content: "🌿";
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  font-size: 22px;
+  opacity: 0.55;
+  transform: rotate(-10deg);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+  z-index: 2;
+}
+.layout .recent-post-item:hover::after,
+.card-widget:hover::after {
+  opacity: 0.85;
+  transform: rotate(0deg) scale(1.15);
+}
+/* ====================== 暗色模式卡片 ====================== */
+[data-theme="dark"] .layout .recent-post-item {
+  background: var(--card-green-dark) !important;
+  border-color: var(--card-green-border-dark) !important;
+  box-shadow: 0 4px 14px var(--card-green-shadow-dark) !important;
+}
+[data-theme="dark"] .layout .recent-post-item:hover {
+  box-shadow: 0 8px 22px var(--card-green-hover-dark) !important;
+}
+[data-theme="dark"] .card-widget {
+  background: var(--card-green-dark) !important;
+  border-color: var(--card-green-border-dark) !important;
+  box-shadow: 0 4px 14px var(--card-green-shadow-dark) !important;
+}
+[data-theme="dark"] .card-widget:hover {
+  box-shadow: 0 8px 22px var(--card-green-hover-dark) !important;
+}
+[data-theme="dark"] .recent-post-item .post-title,
+[data-theme="dark"] .card-widget .widget-title {
+  color: var(--text-title-dark) !important;
+}
+[data-theme="dark"] .recent-post-item .post-excerpt {
+  color: var(--text-body-dark) !important;
+}
+
+/* 按钮hover加深绿色，统一圆角 */
+#rightside .rightside-item:hover {
+  background: var(--card-green-border-light) !important;
+  color: #fff !important;
+  border-radius: 14px !important;
+}
+[data-theme="dark"] #rightside .rightside-item:hover {
+  background: var(--card-green-border-dark) !important;
+  color: #fff !important;
+}
+#rightside .rightside-item {
+  border-radius: 14px !important;
+  border: 2px solid var(--card-green-border-light) !important;
+  transition: all 0.28s ease;
+}
+[data-theme="dark"] #rightside .rightside-item {
+  border: 2px solid var(--card-green-border-dark) !important;
+}
+/* 全局滚动条美化，统一绿色主题 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* 滚动条轨道（底色） */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: var(--card-green-border-light);
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--card-green-main-light);
+}
+
+/* 暗色模式滚动条 */
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--card-green-border-dark);
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--card-green-main-dark);
+}

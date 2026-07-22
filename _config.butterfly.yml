@@ -1091,6 +1091,7 @@ css_prefix: true
 inject:
   head:
   - <link rel="stylesheet" href="/css/search-hot.css">
+  - <link rel="stylesheet" href="/css/custom.css">
   bottom:
   - <script src="/js/search-hot.js"></script>
 
