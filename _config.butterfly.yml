@@ -55,7 +55,7 @@ social:
   # 格式：图标类名: 链接 || 显示文字 || 颜色
   # 把下面示例的链接和文字换成你自己的
   fab fa-github: https://github.com/Kali-Defender || Github || '#24292e'
-  fas fa-rss: /atom.xml || RSS订阅 || '#ff7a45'
+  
   fas fa-envelope: mailto:15580117671@163.com || Email || '#4a7dbe'
 
   # fas fa-envelope: mailto:你的邮箱@gmail.com || Email || '#4a7dbe'
