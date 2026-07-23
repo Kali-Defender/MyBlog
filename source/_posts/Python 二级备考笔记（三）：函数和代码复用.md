@@ -7,6 +7,7 @@ tags:
   - Python二级
   - Python基础
 cover: /img/python3/p1.png
+description: 本文梳理Python函数与代码复用，涵盖函数定义、参数传递、变量作用域、lambda、递归及高阶函数等核心要点。
 ---
 ## 1、函数的定义
 - 函数是一段具有特定功能的、可重用的语句组，是一种功能的抽象。

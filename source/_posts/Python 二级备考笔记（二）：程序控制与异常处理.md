@@ -7,6 +7,7 @@ tags:
   - Python二级
   - Python基础
 cover: /img/python2/p1.png
+description: 本文梳理Python程序控制与异常处理，涵盖if分支、for/while循环、循环控制及try-except异常捕获等核心要点。
 ---
 ## 1. 程序控制结构
 

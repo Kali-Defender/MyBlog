@@ -7,6 +7,7 @@ tags:
   - Python二级
   - Python基础
 cover: /img/python1/p1.png
+description: 本文梳理Python基础语法与数据类型，涵盖标识符、变量、运算符、类型转换及输入输出等核心要点。
 ---
 ## 1. 标识符
 - **命名规则**：

@@ -7,6 +7,7 @@ tags:
   - Python二级
   - Python基础
 cover: /img/python5/p1.png
+description: 本文梳理字符串操作与组合数据类型，涵盖索引切片、常用方法、format格式化及集合、列表、元组、字典等核心要点。
 ---
 ## 1. 文件的基本操作
 
