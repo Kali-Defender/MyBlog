@@ -6,6 +6,7 @@ categories:
 tags: 
   - MyBatis
 cover: /img/Mybatis_3/p1.png
+description: 本文系统讲解MyBatis动态SQL的`<if>`、`<where>`、`<set>`、`<foreach>`等核心标签，结合实战案例演示如何用单一方法灵活组合查询、更新与批量操作，彻底告别硬编码SQL。
 ---
 ## 一、为什么需要动态 SQL？
 

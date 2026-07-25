@@ -6,6 +6,7 @@ categories:
 tags: 
   - MyBatis
 cover: /img/Mybatis_2/p1.png
+description: 这篇文章完整总结了MyBatis的增删改查操作，重点讲解了`@Param`注解和`<foreach>`标签在批量删除中的应用，并演示了自增主键回填与事务提交的关键细节。
 ---
 学习完Mybatis的基本操作流程之后，因为Mybatis本身就是用Java操作数据库的一项技术，我们躲不掉的要学习在Mybatis中怎么对数据库进行增删改查。接下来直接上实战：
 

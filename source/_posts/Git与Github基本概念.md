@@ -7,6 +7,7 @@ tags:
   - Git
   - GitHub
 cover: /img/Git_1/p1.png
+description: 梳理Git版本控制与GitHub协作平台的核心概念，结合AI编程时代背景，说明理解底层逻辑比记忆命令更重要。
 ---
 # Git学习理论篇——AI时代下学习Git与GitHub核心概念
 

@@ -6,6 +6,7 @@ categories:
 tags: 
   - Spring Boot
 cover: /img/Web_1/p1.png
+description: 这篇文章从零搭建Spring Boot项目，系统讲解了请求参数接收、三层架构设计、IoC与DI解耦实践，并介绍了统一响应格式的封装方法。
 ---
 ## 1. 项目搭建与第一个接口
 

@@ -10,7 +10,7 @@ tags:
   - SSH
 cover: /img/Git_2/p1.png
 ---
-# Git学习实战篇——Git与GitHub从零到一完整演练
+
 
 > 本文是理论篇的实战延续，所有操作均可借助Claude AI Agent辅助完成。从环境搭建到PR合并，全流程覆盖。
 
@@ -145,6 +145,7 @@ flowchart LR
     F --> G[管理员 Code Review]
     G --> H[Merge 合并]
 ```
+
 
 1. **Fork**：进入目标仓库，点击右上角**Fork**按钮
 2. **Clone**：在VS Code中按`Ctrl+Shift+P` → `Git: Clone`，粘贴Fork后的仓库URL

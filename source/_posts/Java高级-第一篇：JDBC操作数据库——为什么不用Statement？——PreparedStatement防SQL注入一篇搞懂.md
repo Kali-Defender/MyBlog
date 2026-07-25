@@ -6,6 +6,7 @@ categories:
 tags: 
   - JDBC
 cover: /img/Javaplus_1/p1.png
+description: 本文用案例讲解JDBC操作数据库，重点对比Statement与PreparedStatement，并演示后者如何通过预编译与占位符有效防止SQL注入。
 ---
 ### 引入
 

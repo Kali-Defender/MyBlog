@@ -6,6 +6,7 @@ categories:
 tags: 
   - MyBatis
 cover: /img/Mybatis_1/p1.png
+description: 这篇文章从零搭建MyBatis查询项目，详解动态代理、参数占位符等核心机制，并整理了新手必踩的坑和解决方案。
 ---
 > 适合完全零基础的新手，用最直白的语言讲清楚 MyBatis 是什么、怎么用，以及必须搞懂的 5 个核心问题。
 

@@ -6,9 +6,8 @@ categories:
 tags: 
   - Spring Boot
 cover: /img/Web_2/p1.png
+desciption: 这篇文章通过从UUID令牌到JWT的演进，结合Filter、Interceptor和统一异常处理，完整讲解了Spring Boot登录认证的架构设计与实现细节。
 ---
-# 从UUID到JWT再到Filter/Interceptor：Spring Boot登录认证进阶之路
-
 这篇文章要带你从零实现一个Spring Boot登录接口，并一步步将它从“临时UUID令牌”演变成**无状态的JWT**，再通过**Filter → Interceptor → 统一异常处理**，最终得到一个规范、可维护的认证架构。我们不依赖前端，只使用IDEA内置的HTTP Client做所有测试。所有代码都会给出，你可以复制即用。
 
 ---

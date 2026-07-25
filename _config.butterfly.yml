@@ -1090,10 +1090,14 @@ css_prefix: true
 
 inject:
   head:
-  - <link rel="stylesheet" href="/css/search-hot.css">
-  - <link rel="stylesheet" href="/css/custom.css">
+    - <link rel="stylesheet" href="/css/search-hot.css">
+    - <link rel="stylesheet" href="/css/custom.css">
+    - <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  script:
+    - <script src="/js/mermaid.js"></script>
   bottom:
-  - <script src="/js/search-hot.js"></script>
+    - <script src="/js/search-hot.js"></script>
+
 
     
     
