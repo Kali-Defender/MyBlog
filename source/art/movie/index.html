@@ -1,43 +1,195 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="art-html">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎬 影视馆 · 我的博客</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <style>
-    .film-card {
-      cursor: pointer;
-    }
-    .film-card a {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>影视馆 | 生活札记</title>
+<link rel="stylesheet" href="/art/css/style.css">
+<style>
+.main-container{
+  width:100%;
+  max-width:1200px;
+  margin: 40px auto 0;
+}
+.tag-bar{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:16px 0 32px;
+}
+.tag-btn{
+  padding:6px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.12);
+  background:transparent;
+  color:var(--text-weak);
+  cursor:pointer;
+  transition:0.2s;
+}
+.tag-btn.active{
+  background:rgba(185,130,255,0.15);
+  border-color:rgba(185,130,255,0.35);
+  color:#c396ff;
+}
+.tag-btn:hover{
+  border-color:rgba(255,255,255,0.25);
+}
+.card-list {
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+.list-card{
+  padding:24px;
+}
+.list-card.hidden{
+  display:none;
+}
+.movie-card-row{
+  display:flex;
+  gap:24px;
+  align-items:flex-start;
+}
+.movie-cover{
+  width:auto;
+  max-height:240px;
+  border-radius:10px;
+  object-fit:cover;
+  flex-shrink:0;
+}
+.movie-cover-placeholder{
+  width:160px;
+  height:240px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.04);
+  flex-shrink:0;
+}
+.movie-text-wrap{
+  flex:1;
+}
+.card-title{
+  font-size:1.4rem;
+  margin:0 0 8px;
+}
+.card-meta{
+  color:var(--text-weak);
+  font-size:0.92rem;
+  margin:0 0 6px;
+}
+.card-summary{
+  margin-top:16px;
+  opacity:0.76;
+  line-height:1.6;
+}
+@media (max-width:768px){
+  .movie-card-row{
+    flex-direction:column;
+  }
+  .movie-cover{
+    max-width:220px;
+  }
+}
+</style>
 </head>
-<body class="art-body">
-  <div class="art-container">
-    <h1 class="art-title">🎬 影视馆</h1>
-    <p class="art-subtitle">光影之间，留下观后感</p>
+<body>
+<header class="site-header">
+  <a href="/art/index.html" class="back-blog-link">← 返回生活札记首页</a>
+  <div class="header-title-wrap">
+    <h1 class="main-title" style="color:var(--color-movie)">影视馆</h1>
+    <p class="sub-title">电影、剧集，多篇影评汇总</p>
+  </div>
+  <div class="filter-placeholder">
+    <div class="tag-bar" id="tagBar"></div>
+  </div>
+</header>
+<main class="main-container">
+  <div class="card-list" id="listWrap">
+    <p class="loading-text">加载中...</p>
+  </div>
+</main>
+<script src="/art/js/utils.js"></script>
+<script>
+const wrap = document.getElementById("listWrap");
+const tagBar = document.getElementById("tagBar");
+let allData = [];
+let selectedTags = new Set();
 
-    <div class="art-grid" id="film-grid">
-      <!-- 影片 1 -->
-      <div class="art-card film-card">
-        <a href="film/film1.html">
-          <div class="art-card-img-wrapper">
-            <img src="film/film1/cover.png"
-                 alt="影片一" class="art-card-img" loading="lazy">
-          </div>
-          <h2 class="art-card-title">肖申克的救赎</h2>
-          <p class="art-card-sub">1994 · 剧情 / 犯罪</p>
-        </a>
-      </div>
+function renderCard(item) {
+  const card = document.createElement("div");
+  card.className = "glass-card list-card";
+  card.dataset.tags = JSON.stringify(item.tags || []);
+  card.innerHTML = `
+  <div class="movie-card-row">
+    ${item.cover ? 
+      `<img class="movie-cover" src="${item.cover}" loading="lazy">` 
+      : `<div class="movie-cover-placeholder"></div>`
+    }
+    <div class="movie-text-wrap">
+      <h3 class="card-title">${item.title}</h3>
+      <p class="card-meta">${Utils.formatDate(item.recordDate)}｜共${item.articles.length}篇感想</p>
+      <p class="card-meta">导演：${item.director}</p>
+      ${item.summary ? `<p class="card-summary">${item.summary}</p>` : ""}
+    </div>
+  </div>`;
+  card.onclick = ()=>Utils.openModal(item);
+  return card;
+}
 
-      
+function renderTags(){
+  const tagSet = new Set();
+  allData.forEach(item=>{
+    (item.tags || []).forEach(t=>tagSet.add(t));
+  });
+  const tagList = Array.from(tagSet);
+  tagBar.innerHTML = "";
+  const clearBtn = document.createElement("button");
+  clearBtn.className = "tag-btn";
+  clearBtn.innerText = "全部";
+  clearBtn.onclick = ()=>{
+    selectedTags.clear();
+    refreshFilter();
+  };
+  tagBar.appendChild(clearBtn);
+  tagList.forEach(tag=>{
+    const btn = document.createElement("button");
+    btn.className = "tag-btn";
+    btn.innerText = tag;
+    btn.onclick = ()=>{
+      if(selectedTags.has(tag)) selectedTags.delete(tag);
+      else selectedTags.add(tag);
+      refreshFilter();
+    };
+    tagBar.appendChild(btn);
+  });
+  refreshFilter();
+}
 
-    
+function refreshFilter(){
+  const cards = wrap.querySelectorAll(".list-card");
+  document.querySelectorAll(".tag-btn").forEach(btn=>{
+    btn.classList.toggle("active", selectedTags.has(btn.innerText));
+  });
+  cards.forEach(card=>{
+    const cardTags = JSON.parse(card.dataset.tags);
+    if(selectedTags.size === 0){
+      card.classList.remove("hidden");
+    }else{
+      const match = [...selectedTags].some(t=>cardTags.includes(t));
+      card.classList.toggle("hidden", !match);
+    }
+  });
+}
 
-  <a href="../index.html" class="art-door" title="返回艺术馆">🚪</a>
+document.addEventListener("DOMContentLoaded", async ()=>{
+  allData = await Utils.loadJson("movies.json");
+  wrap.innerHTML = "";
+  if(allData.length === 0){
+    wrap.innerHTML = "<p class='empty-tip'>暂无影视记录</p>";
+    return;
+  }
+  allData.forEach(item=>wrap.appendChild(renderCard(item)));
+  renderTags();
+});
+</script>
 </body>
 </html>

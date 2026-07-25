@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>感想详情 | 生活札记</title>
+<link rel="stylesheet" href="/art/css/style.css">
+<style>
+.main-container{
+  width:100%;
+  max-width:900px;
+  margin: 40px auto;
+  padding:0 20px;
+}
+.article-header{
+  margin-bottom:36px;
+}
+.article-type-tag{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:6px;
+  font-size:0.8rem;
+  margin-bottom:12px;
+}
+.type-movie{
+  background:rgba(185,130,255,0.15);
+  color:#c396ff;
+}
+.type-music{
+  background:rgba(110,185,255,0.15);
+  color:#72b9ff;
+}
+.type-book{
+  background:rgba(255,195,110,0.15);
+  color:#ffc36e;
+}
+.type-thought{
+  background:rgba(120,255,180,0.15);
+  color:#89ffbc;
+}
+.article-header h1{
+  font-size:2rem;
+  margin:0 0 10px;
+}
+.article-meta{
+  color:var(--text-weak);
+  font-size:0.92rem;
+}
+.article-tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:16px 0;
+}
+.article-tag{
+  padding:4px 10px;
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:99px;
+  font-size:0.82rem;
+  color:var(--text-weak);
+}
+.article-cover{
+  max-height:340px;
+  width:auto;
+  border-radius:12px;
+  margin:16px 0 24px;
+}
+.bilibili-player{
+  width:100%;
+  max-width:600px;
+  aspect-ratio:16/9;
+  border-radius:12px;
+  border:none;
+  display:block;
+  margin:24px auto;
+}
+.article-block{
+  padding:24px;
+  background:rgba(255,255,255,0.04);
+  border-radius:14px;
+  margin-bottom:20px;
+}
+.block-title{
+  font-size:1.25rem;
+  margin:0 0 8px;
+}
+.block-meta{
+  font-size:0.86rem;
+  color:var(--text-weak);
+  margin-bottom:14px;
+}
+.article-content{
+  line-height:1.8;
+  font-size:1rem;
+  color:#e9e9e9;
+}
+.article-content p{
+  margin:0.8em 0;
+}
+.loading-text{
+  text-align:center;
+  padding:60px 0;
+  color:var(--text-weak);
+}
+.empty-tip{
+  text-align:center;
+  padding:60px 0;
+  color:var(--text-weak);
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="javascript:history.back()" class="back-blog-link">← 返回上一页</a>
+</header>
+<main class="main-container" id="articleBox">
+  <p class="loading-text">加载中...</p>
+</main>
+
+<script src="/art/js/utils.js"></script>
+<script>
+const box = document.getElementById("articleBox");
+
+// 获取url传递的数据ID
+function getUrlParam(key){
+  const params = new URLSearchParams(location.search);
+  return params.get(key);
+}
+
+async function renderMain(mainItem) {
+  let html = `<div class="article-header">
+    <span class="article-type-tag type-${mainItem.type}">${{movie:"影视馆",music:"音乐馆",book:"书籍馆",thought:"随笔"}[mainItem.type]}</span>
+    <h1>${mainItem.title}</h1>
+    <div class="article-meta">记录日期：${Utils.formatDate(mainItem.recordDate)}
+    ${mainItem.type==="movie" ? `｜导演：${mainItem.director}` : ""}
+    ${mainItem.type==="book" ? `｜作者：${mainItem.author}` : ""}
+    </div>`;
+  // 渲染标签
+  const tagDom = Utils.renderTagList(mainItem.tags || []);
+  let tagHtml = "";
+  tagDom.childNodes.forEach(el=>tagHtml += el.outerHTML);
+  html += `<div class="article-tags">${tagHtml}</div>`;
+
+  // 封面图
+  if(mainItem.cover) html += `<img class="article-cover" src="${mainItem.cover}" loading="lazy">`;
+
+  // 音乐页面嵌入B站播放器
+  if(mainItem.type === "music" && mainItem.bvid){
+    html += `<iframe class="bilibili-player" src="https://player.bilibili.com/player.html?bvid=${mainItem.bvid}&as_wide=1&high_quality=1" allowfullscreen></iframe>`;
+  }
+  html += `</div>`;
+
+  // 循环渲染每一篇感想
+  if(!mainItem.articles || mainItem.articles.length === 0){
+    html += `<p class="empty-tip">暂无感想记录</p>`;
+  }else{
+    for(const art of mainItem.articles){
+      let articleBody;
+      if(mainItem.type === "music"){
+        // 音乐：直接读取JSON内content，换行转换
+        articleBody = art.content ? art.content.replaceAll('\n','<br>') : "<p>暂无正文</p>";
+      }else{
+        // 影视/书籍/随笔：加载外部md文件
+        try{
+          articleBody = await Utils.loadMarkdown(art.mdPath);
+        }catch(err){
+          articleBody = `<p style="color:#ff8888;">感想正文加载失败，请检查md文件路径：${art.mdPath}</p>`;
+        }
+      }
+      html += `<div class="article-block">
+        <h3 class="block-title">${art.subTitle}</h3>
+        <div class="block-meta">感想记录：${Utils.formatDate(art.recordDate)}
+        ${art.score!==null ? `｜评分：${art.score}` : ""}</div>
+        <div class="article-content">${articleBody}</div>
+      </div>`;
+    }
+  }
+  box.innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded", async ()=>{
+  const itemId = getUrlParam("id");
+  const type = getUrlParam("type");
+  if(!itemId || !type){
+    box.innerHTML = "<p class='empty-tip'>参数缺失，返回列表页</p>";
+    setTimeout(()=>history.back(),2000);
+    return;
+  }
+  let jsonName;
+  if(type === "movie") jsonName = "movies.json";
+  if(type === "music") jsonName = "music.json";
+  if(type === "book") jsonName = "books.json";
+  if(type === "thought") jsonName = "thoughts.json";
+
+  try{
+    const data = await Utils.loadJson(jsonName);
+    const targetItem = data.find(item=>item.id === itemId);
+    if(!targetItem){
+      box.innerHTML = "<p class='empty-tip'>未找到该条目</p>";
+      setTimeout(()=>history.back(),2000);
+      return;
+    }
+    await renderMain(targetItem);
+  }catch(e){
+    box.innerHTML = `<p class="empty-tip">数据加载异常：${e.message}</p>`;
+  }
+});
+</script>
+</body>
+</html>

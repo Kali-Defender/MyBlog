@@ -1,0 +1,22 @@
+[
+  {
+    "id": "book_001",
+    "type": "book",
+    "title": "人类简史",
+    "cover": "https://pic2.zhimg.com/v2-aa7f28bfe0ca4ab82229968ccdecb806_720w.jpg?source=172ae18b",
+    "tags": ["社科","历史"],
+    "recordDate": "2026-04-15",
+    "summary": "人类演化完整梳理",
+    "author": "尤瓦尔·赫拉利",
+    "articles": [
+      {
+        "articleId": "book_art_001",
+        "subTitle": "整体阅读感悟",
+        "score": 8.8,
+        "recordDate": "2026-04-20",
+        "summary": "重构人类文明认知",
+        "content": "从认知革命到现代社会，视角宏大......"
+      }
+    ]
+  }
+]

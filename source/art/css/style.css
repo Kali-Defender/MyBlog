@@ -1,259 +1,252 @@
-/* === 艺术馆全局 === */
-.art-html {
+/* ==============================================
+全局CSS变量统一管理（主题色、间距、圆角、动画、模糊）
+============================================== */
+:root {
+  /* 深色文艺主色调 */
+  --bg-primary: #0c0d14;
+  --bg-gradient-1: #141522;
+  --bg-gradient-2: #0f101a;
+  --glass-bg-rgba: rgba(255, 255, 255, 0.06);
+  --glass-solid-fallback: rgba(30, 32, 48, 0.92);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  /* 文字色阶 */
+  --text-high: #f7f8fc;
+  --text-normal: #d1d4e0;
+  --text-weak: #888ca0;
+  /* 板块区分色 */
+  --color-movie: #b886ff;
+  --color-music: #73c0ff;
+  --color-book: #ffb873;
+  --color-thought: #73ffb8;
+  /* 尺寸间距 */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 36px;
+  /* 动画统一缓动与时长 */
+  --anim-ease: ease-out;
+  --anim-fast: 0.18s;
+  --anim-normal: 0.28s;
+  --anim-slow: 0.4s;
+  /* 毛玻璃模糊值 */
+  --blur-soft: 10px;
+  --blur-deep: 16px;
+  /* 阴影柔光 */
+  --shadow-soft: 0 0 18px rgba(130, 160, 255, 0.08);
+  --shadow-hover: 0 0 26px rgba(150, 180, 255, 0.16);
+}
+
+/* ==============================================
+全局重置 & 基础页面样式
+============================================== */
+* {
   margin: 0;
   padding: 0;
-  background-color: #1a120b;
-  font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  box-sizing: border-box;
 }
 
-.art-body {
-  margin: 0;
-  padding: 2rem;
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(145deg, var(--bg-primary), var(--bg-gradient-1), var(--bg-gradient-2));
+  color: var(--text-normal);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  line-height: 1.65;
+  padding: var(--gap-xl) var(--gap-lg);
 }
 
-.art-container {
-  max-width: 1100px;
-  width: 100%;
-  text-align: center;
-  color: #ede0d4;
-}
-
-.art-title {
-  font-size: 3rem;
-  margin-bottom: 0.2em;
-  color: #d4a373;
-}
-
-.art-subtitle {
-  font-size: 1.2rem;
-  color: #b08968;
-  margin-bottom: 3rem;
-}
-
-/* 卡片网格 */
-.art-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.art-card {
-  background: #2c1e16;
-  border-radius: 24px;
-  padding: 1.5rem;
-  width: 280px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  display: block;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-
-.art-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(212, 163, 115, 0.3);
-}
-
-.art-card-img-wrapper {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 16px;
-  margin-bottom: 1rem;
-  background: #3a2c21;
-}
-
-.art-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.art-card-title {
-  font-size: 1.6rem;
-  margin: 0.5rem 0;
-  color: #d4a373;
-}
-
-.art-card-sub {
-  font-size: 0.95rem;
-  color: #9c7a5c;
-  margin-bottom: 1rem;
-}
-
-.art-btn {
-  display: inline-block;
-  background: #d4a373;
-  color: #1a120b;
-  padding: 0.6rem 2rem;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: background 0.2s;
-}
-
-.art-card:hover .art-btn {
-  background: #b07948;
-}
-
-/* 门控件（通用） */
-.art-door {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  font-size: 3rem;
+a {
   text-decoration: none;
-  background: rgba(44, 30, 22, 0.8);
-  width: 80px;
-  height: 80px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-  transition: transform 0.2s, background 0.2s;
-  z-index: 999;
+  color: inherit;
+  transition: all var(--anim-fast) var(--anim-ease);
 }
 
-.art-door:hover {
-  background: rgba(212, 163, 115, 0.9);
-  transform: scale(1.1) rotate(5deg);
+h1, h2, h3, h4 {
+  color: var(--text-high);
+  font-weight: 500;
 }
 
-/* ===== 音乐馆样式（新增） ===== */
-.music-html {
-  margin: 0;
-  padding: 0;
-  background-color: #1a120b;
-  font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+/* 图片通用懒加载、占位兼容（全局图片规范） */
+img {
+  max-width: 100%;
+  display: block;
+  loading: lazy;
+  border-radius: var(--radius-sm);
 }
 
-.music-body {
-  margin: 0;
-  padding: 2rem;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* ==============================================
+毛玻璃通用组件 + 特性检测降级方案
+============================================== */
+.glass-card {
+  background: var(--glass-bg-rgba);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--anim-normal) var(--anim-ease);
 }
 
-.music-container {
-  max-width: 800px;
-  width: 100%;
-  text-align: center;
-  color: #ede0d4;
+/* 不支持backdrop-filter时降级纯色底板 */
+@supports not (backdrop-filter: blur(10px)) {
+  .glass-card {
+    background: var(--glass-solid-fallback);
+  }
 }
 
-.music-title {
-  font-size: 3rem;
-  margin-bottom: 0.2em;
-  color: #d4a373;
+@supports (backdrop-filter: blur(10px)) {
+  .glass-card {
+    backdrop-filter: blur(var(--blur-soft));
+    -webkit-backdrop-filter: blur(var(--blur-soft));
+  }
 }
 
-.music-subtitle {
-  font-size: 1.2rem;
-  color: #b08968;
-  margin-bottom: 3rem;
+.glass-card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
-.music-list {
+/* ==============================================
+页面头部通用样式（首页/列表页共用头部结构）
+============================================== */
+.site-header {
+  margin-bottom: var(--gap-xl);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: var(--gap-md);
 }
 
-.music-item {
-  background: #2c1e16;
-  border-radius: 16px;
-  padding: 1rem 1.5rem;
+.back-blog-link {
+  color: var(--text-weak);
+  font-size: 0.92rem;
+  width: fit-content;
+}
+
+.back-blog-link:hover {
+  color: var(--text-high);
+}
+
+.header-title-wrap {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition: background 0.2s;
+  flex-direction: column;
+  gap: var(--gap-xs);
 }
 
-.music-item:hover {
-  background: #3a2c21;
+.main-title {
+  font-size: 2.4rem;
+  letter-spacing: 2px;
 }
 
-.music-cover {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #3a2c21;
-  flex-shrink: 0;
+.sub-title {
+  color: var(--text-weak);
+  font-size: 1.05rem;
 }
 
-.music-cover img {
+/* ==============================================
+首页专属板块导航卡片区域
+============================================== */
+.main-container {
+  margin-bottom: var(--gap-xl);
+}
+
+.plate-nav-wrap {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+}
+
+.plate-scroll-wrapper {
+  display: flex;
+  gap: var(--gap-lg);
+  overflow-x: auto;
+  padding-bottom: var(--gap-md);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+/* 美化滚动条 */
+.plate-scroll-wrapper::-webkit-scrollbar {
+  height: 4px;
+}
+.plate-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.plate-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 99px;
+}
+
+.plate-card {
+  flex: 0 0 320px;
+  height: 200px;
   display: block;
 }
 
-.music-info {
-  flex-grow: 1;
-  text-align: left;
+.plate-card-inner {
+  width: 100%;
+  height: 100%;
+  padding: var(--gap-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap-md);
 }
 
-.music-info h3 {
-  margin: 0;
-  font-size: 1.3rem;
-  color: #d4a373;
+.plate-name {
+  font-size: 1.6rem;
 }
 
-.music-info p {
-  margin: 0.2rem 0 0;
-  font-size: 0.9rem;
-  color: #9c7a5c;
-}
-
-.music-play-btn {
-  background: #d4a373;
-  border: none;
-  color: #1a120b;
-  font-weight: bold;
-  padding: 0.6rem 1.4rem;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.2s;
-  flex-shrink: 0;
-}
-
-.music-play-btn:hover {
-  background: #b07948;
-}
-
-/* Toast 样式（供 showToast 使用） */
-.art-toast {
-  position: fixed;
-  bottom: 100px;
-  right: 40px;
-  background: #2c1e16;
-  color: #ede0d4;
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  z-index: 9999;
+.plate-desc {
+  color: var(--text-weak);
   font-size: 0.95rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s, transform 0.3s;
 }
 
-.art-toast.show {
-  opacity: 1;
-  transform: translateY(0);
+/* 四大板块卡片差异化标题配色 */
+.plate-card:nth-child(1) .plate-name { color: var(--color-movie); }
+.plate-card:nth-child(2) .plate-name { color: var(--color-music); }
+.plate-card:nth-child(3) .plate-name { color: var(--color-book); }
+.plate-card:nth-child(4) .plate-name { color: var(--color-thought); }
+
+/* ==============================================
+底部全局样式
+============================================== */
+.site-footer {
+  margin-top: auto;
+  padding-top: var(--gap-lg);
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-.art-toast.error {
-  background: #5c2b2b;
-  color: #f5c6c6;
+.update-tip {
+  color: var(--text-weak);
+  font-size: 0.9rem;
+}
+
+/* ==============================================
+响应式媒体查询（移动端自动切换垂直布局）
+============================================== */
+@media screen and (max-width: 768px) {
+  body {
+    padding: var(--gap-lg) var(--gap-md);
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  /* 移动端取消横向滚动，改为垂直单列流式 */
+  .plate-scroll-wrapper {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+
+  .plate-card {
+    flex: unset;
+    width: 100%;
+    height: 160px;
+  }
 }

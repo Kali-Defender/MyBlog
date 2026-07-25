@@ -1,128 +1,130 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人艺术馆 - 四板块入口</title>
-  <!-- <link rel="stylesheet" href="/css/style.css"> -->
-  <style>
-       body {
-      margin: 0;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      color: #e0e0e0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      min-height: 100vh;
-    }
-    .art-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    .art-container h1 {
-      color: #ffffff;
-      font-size: 36px;
-    }
-    .art-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-    .art-card {
-      background: #2a2a2a;
-      border-radius: 16px;
-      padding: 30px 24px;
-      flex: 1 1 220px;
-      max-width: 260px;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      position: relative;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-    }
-    .art-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.55);
-      z-index: 0;
-      border-radius: 16px;
-    }
-    .art-card > * {
-      position: relative;
-      z-index: 1;
-    }
-    /* 每个卡片单独的背景图 (Unsplash 免费占位图) */
-    .art-card:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&h=300&fit=crop'); }
-    .art-card:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=300&fit=crop'); }
-    .art-card:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?w=400&h=300&fit=crop'); }
-    .art-card:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=faces'); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生活札记 | 观影 | 听乐 | 读书 | 随笔</title>
+<link rel="stylesheet" href="./css/style.css">
+<style>
+.plate-nav-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 60px auto 0;
+}
+.plate-scroll-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 32px;
+  overflow: visible;
+}
+.plate-card {
+  display: block;
+  /* 固定最小高度，彻底杜绝高度不一致导致的重叠 */
+  min-height: 240px;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  /* 核心：背景图配置 + 深色渐变遮罩，保证文字可读 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  background-color: rgba(0,0,0,0.55);
+  transition: all 0.26s ease;
+  position: relative;
+}
+.plate-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 45%);
+  pointer-events:none;
+}
+.plate-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.16);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+/* 文字提升层级，浮在背景上方 */
+.plate-card-text{
+  position:relative;
+  z-index:2;
+}
+.plate-name {
+  font-size: 1.6rem;
+  margin:0 0 8px;
+}
+.plate-desc {
+  color: var(--text-weak);
+  font-size:0.92rem;
+  line-height:1.6;
+}
+.name-movie { color: var(--color-movie); }
+.name-music { color: var(--color-music); }
+.name-book { color: var(--color-book); }
+.name-thought { color: var(--color-thought); }
 
-    .art-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-    }
-    .art-icon {
-      font-size: 56px;
-      margin-bottom: 16px;
-    }
-    .art-card h2 {
-      margin: 0 0 8px;
-      font-size: 22px;
-    }
-    .art-card p {
-      color: #aaa;
-      font-size: 14px;
-      margin: 0;
-    }
-    .home-link {
-      display: block;
-      text-align: center;
-      margin: 30px 0;
-      color: #d4a373;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: 0.2s;
-    }
-    .home-link:hover {
-      border-bottom-color: #d4a373;
-    }
-  </style>
+@media (max-width: 680px) {
+  .plate-scroll-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 <body>
-  <div class="art-container">
-    <h1 style="text-align:center; margin-bottom:20px;">🎨 个人艺术馆</h1>
-    <div class="art-gallery">
-      <a href="movie/index.html" class="art-card">
-        <div class="art-icon">🎬</div>
-        <h2>影视馆</h2>
-        <p>观影记录与影评</p>
+<header class="site-header">
+  <a href="/" class="back-blog-link">← 返回博客首页（技术札记）</a>
+  <div class="header-title-wrap">
+    <h1 class="main-title">生活札记</h1>
+    <p class="sub-title">观影 | 听乐 | 读书 | 随笔</p>
+  </div>
+</header>
+
+<main class="main-container">
+  <section class="plate-nav-wrap">
+    <div class="plate-scroll-wrapper">
+      <!-- 影视馆 -->
+      <a href="./movie/index.html" class="plate-card" style="background-image: url('./img/bg-movie.jpg');">
+        <div class="plate-card-text">
+          <h2 class="plate-name name-movie">影视馆</h2>
+          <p class="plate-desc">院线电影、连续剧观影记录与影评</p>
+        </div>
       </a>
-      <a href="music/index.html" class="art-card">
-        <div class="art-icon">🎵</div>
-        <h2>音乐馆</h2>
-        <p>专辑收藏与乐评</p>
+      <!-- 音乐馆 -->
+      <a href="./music/index.html" class="plate-card" style="background-image: url('./img/bg-music.jpg');">
+        <div class="plate-card-text">
+          <h2 class="plate-name name-music">音乐馆</h2>
+          <p class="plate-desc">单曲、专辑聆听，内嵌B站音频试听</p>
+        </div>
       </a>
-      <a href="#" class="art-card" onclick="alert('书籍馆尚未开放')">
-        <div class="art-icon">📚</div>
-        <h2>书籍馆</h2>
-        <p>待开放</p>
+      <!-- 书籍馆 -->
+      <a href="./book/index.html" class="plate-card" style="background-image: url('./img/bg-book.jpg');">
+        <div class="plate-card-text">
+          <h2 class="plate-name name-book">书籍馆</h2>
+          <p class="plate-desc">实体/电子书阅读记录与读后感</p>
+        </div>
       </a>
-      <a href="#" class="art-card" onclick="alert('思想风暴尚未开放')">
-        <div class="art-icon">💭</div>
-        <h2>思想风暴</h2>
-        <p>待开放</p>
+      <!-- 随笔 -->
+      <a href="./thought/index.html" class="plate-card" style="background-image: url('./img/bg-thought.jpg');">
+        <div class="plate-card-text">
+          <h2 class="plate-name name-thought">随笔</h2>
+          <p class="plate-desc">日常感悟、碎片化灵感与情绪记录</p>
+        </div>
       </a>
     </div>
-    <a href="/" class="home-link">← 返回博客首页</a>
-  </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="update-tip"></p>
+</footer>
+
+<script src="./js/utils.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const footerTip = document.querySelector('.update-tip');
+});
+</script>
 </body>
 </html>

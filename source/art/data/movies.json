@@ -1,28 +1,31 @@
 [
   {
-    "id": "inception",
-    "title": "盗梦空间",
-    "year": 2010,
-    "director": "克里斯托弗·诺兰",
-    "poster": "https://via.placeholder.com/400x600/3e2a21/fefae0?text=Inception",
-    "summary": "一名特殊的盗梦者，进入他人梦境窃取秘密，但这次任务是要植入一个想法。",
-    "full_intro": "多姆·柯布是一名善于从睡梦中窃取想法的盗贼，但也因此成为一名国际逃犯，失去了所爱的一切。如今，他得到了一次救赎的机会，只要完成一项看似不可能的任务——奠基。与以往不同的是，这次他和团队的任务不是窃取想法，而是植入一个想法。",
-    "review_path": "",
-    "review_html": "<p>观后感待补充</p>",
-    "sort_order": 1,
-    "enabled": true
-  },
-  {
-    "id": "interstellar",
-    "title": "星际穿越",
-    "year": 2014,
-    "director": "克里斯托弗·诺兰",
-    "poster": "https://via.placeholder.com/400x600/5c3d2e/fefae0?text=Interstellar",
-    "summary": "未来地球环境恶化，一组宇航员穿越虫洞，为人类寻找新家园。",
-    "full_intro": "在未来，地球面临着严重的环境问题，农作物逐渐灭绝。前NASA宇航员库珀被征召加入一项穿越虫洞、寻找人类新家园的宇宙任务。",
-    "review_path": "",
-    "review_html": "<p>观后感待补充</p>",
-    "sort_order": 2,
-    "enabled": true
+    "id": "movie_001",
+    "type": "movie",
+    "title": "流浪地球3",
+    "cover": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2900219796.webp",
+    "director": "郭帆",
+    "year": 2026,
+    "tags": ["国产科幻","院线"],
+    "recordDate": "2026-07-20",
+    "summary": "场面宏大，人类延续文明的史诗叙事",
+    "articles": [
+      {
+        "articleId": "art_001",
+        "subTitle": "整体观影感受",
+        "score": 9.2,
+        "recordDate": "2026-07-20",
+        "summary": "初次观影整体感受，节奏与场面点评",
+        "mdPath": "./md/movie/art_001.md"
+      },
+      {
+        "articleId": "art_002",
+        "subTitle": "文明内核深度剖析",
+        "score": 9.2,
+        "recordDate": "2026-07-26",
+        "summary": "从集体主义视角解析影片底层思想",
+        "mdPath": "./md/movie/art_002.md"
+      }
+    ]
   }
 ]

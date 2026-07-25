@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全部记录 | 生活札记</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/art/index.html" class="back-blog-link">← 返回生活札记首页</a>
+    <div class="header-title-wrap">
+      <h1 class="main-title" style="background: linear-gradient(90deg, var(--color-movie), var(--color-music), var(--color-book), var(--color-thought));-webkit-background-clip:text;color:transparent;">全部记录</h1>
+      <p class="sub-title">影视 / 音乐 / 书籍 / 随笔 汇总浏览，按记录时间倒序</p>
+    </div>
+    <div class="filter-placeholder">
+      <span style="color: var(--text-weak); font-size: 0.9rem;">全局筛选（预留）</span>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div class="card-grid" id="allListWrap">
+      <p class="loading-text">加载全部记录中...</p>
+    </div>
+  </main>
+
+  <script src="../js/utils.js"></script>
+  <script>
+    const wrap = document.getElementById('allListWrap');
+    // 板块名称映射
+    const typeColorMap = {
+      movie: { name: '影视馆', color: 'var(--color-movie)' },
+      music: { name: '音乐馆', color: 'var(--color-music)' },
+      book: { name: '书籍馆', color: 'var(--color-book)' },
+      thought: { name: '随笔', color: 'var(--color-thought)' }
+    };
+
+    // 通用卡片渲染（适配四类条目）
+    function renderAllCard(item) {
+      const card = document.createElement('div');
+      card.className = 'glass-card list-card';
+      const typeInfo = typeColorMap[item.type];
+      let extMeta = '';
+      // 差异化附加元信息
+      if(item.type === 'movie') extMeta = `导演：${item.director}`;
+      if(item.type === 'book') extMeta = `作者：${item.author}`;
+
+      card.innerHTML = `
+        ${item.cover ? `<img src="${item.cover}" loading="lazy" class="card-cover">` : `
+        <div class="cover-placeholder">暂无封面</div>
+        `}
+        <div class="card-body">
+          <span style="font-size:0.8rem;color:${typeInfo.color};">${typeInfo.name}</span>
+          <h3 class="card-title">${item.title}</h3>
+          <p class="card-meta">${Utils.formatDate(item.recordDate)} ${extMeta ? '· ' + extMeta : ''}</p>
+          ${item.score !== null && ['movie','book'].includes(item.type) ? `<p class="card-score">评分 ${item.score}/10</p>` : ''}
+        </div>
+      `;
+      // 点击唤起全局弹窗
+      card.addEventListener('click', () => Utils.openModal(item));
+      return card;
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      wrap.innerHTML = '';
+      const allData = await Utils.loadAllData();
+      // 合并四类数据为单个数组
+      let totalList = [
+        ...allData.movies,
+        ...allData.music,
+        ...allData.books,
+        ...allData.thoughts
+      ];
+      if(totalList.length === 0) {
+        wrap.innerHTML = '<p class="empty-tip">暂无任何记录</p>';
+        return;
+      }
+      // 按记录日期倒序（最新内容置顶）
+      totalList.sort((a,b) => new Date(b.recordDate) - new Date(a.recordDate));
+      // 批量渲染卡片
+      totalList.forEach(item => wrap.appendChild(renderAllCard(item)));
+    });
+  </script>
+</body>
+</html>

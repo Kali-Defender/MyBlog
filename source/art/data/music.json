@@ -1,26 +1,34 @@
 [
   {
-    "id": "dark_side",
-    "title": "The Dark Side of the Moon",
-    "artist": "Pink Floyd",
-    "cover": "https://via.placeholder.com/400x400/3e2a21/d4a373?text=Album+Cover",
-    "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-    "audio_url_fallback": "",
-    "duration": 248,
-    "sort_order": 1,
-    "enabled": true,
-    "created_at": "2024-01-15"
+    "id": "music_001",
+    "type": "music",
+    "title": "春风十里",
+    "cover": "http://p1.music.126.net/hYjA4Th6CAdkWI_sm32juw==/109951163669459549.jpg?param=177y177",
+    "tags": ["治愈","流行"],
+    "recordDate": "2026-07-20",
+    "summary": "温柔舒缓夜间单曲",
+    "bvid": "BV15M411Q7Xr",
+    "articles": [
+      {
+        "articleId": "mus_art_001",
+        "subTitle": "深夜循环听感",
+        "score": null,
+        "recordDate": "2026-07-20",
+        "summary": "夜晚独处很适配",
+        "content": "安静舒缓，适合睡前循环\n旋律柔和治愈焦虑情绪"
+      }
+    ]
   },
   {
-    "id": "ok_computer",
-    "title": "OK Computer",
-    "artist": "Radiohead",
-    "cover": "https://via.placeholder.com/400x400/5c3d2e/d4a373?text=Album+Cover",
-    "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-    "audio_url_fallback": "",
-    "duration": 300,
-    "sort_order": 2,
-    "enabled": true,
-    "created_at": "2024-02-20"
+    "id": "music_002",
+    "type": "music",
+    "title": "你都忘了你有多美",
+    "cover": "http://p1.music.126.net/MAlUrlsEQP08fEF4CsaOPQ==/109951172945878474.jpg?param=177y177",
+    "tags": ["流行"],
+    "recordDate": "2026-07-20",
+    "summary": "",
+    "bvid": "BV1qCn2zwEzA",
+    "articles": []
   }
 ]
+
