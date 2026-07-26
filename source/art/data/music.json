@@ -23,7 +23,7 @@
     "id": "music_001",
     "type": "music",
     "title": "我不配",
-    "cover": "https://imge.kugou.com/stdmusic/20220705/20220705143006989099.jpg",
+    "cover": "/art/img/music/wobupei.jpg",
     "tags": ["治愈","流行"],
     "recordDate": "2026-07-20",
     "summary": "温柔emo单曲",
@@ -79,7 +79,39 @@
     }
   ]
   },
-
+  {
+    "id": "music_001",
+    "type": "music",
+    "title": "够钟",
+    "cover": "/art/img/music/gouzhong.jpg",
+    "tags": ["周柏豪","流行"],
+    "recordDate": "2026-07-20",
+    "summary": "温柔emo单曲",
+    "bvid": "BV1kQ4y1x7kc",
+    "articles": []
+  },
+  {
+    "id": "music_001",
+    "type": "music",
+    "title": "当年情",
+    "cover": "/art/img/music/dangnianqing.png",
+    "tags": ["张国荣","流行","经典","粤语"],
+    "recordDate": "2026-07-20",
+    "summary": "温柔emo单曲",
+    "bvid": "BV1kQ4y1x7kc",
+    "articles": []
+  },
+  {
+    "id": "music_001",
+    "type": "music",
+    "title": "手写的从前",
+    "cover": "/art/img/music/shouxiedecongqian.jpg",
+    "tags": ["周杰伦","流行","青春"],
+    "recordDate": "2026-07-20",
+    "summary": "温柔emo单曲",
+    "bvid": "BV1Zd7C6vEUp",
+    "articles": []
+  },
   {
     "id": "music_002",
     "type": "music",
