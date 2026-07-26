@@ -1,5 +1,9 @@
-#sidebar-toggle
-  position relative !important
-  z-index 9999 !important
-  padding: 18px !important
-  touch-action: manipulation !important
+@media (max-width: 768px)
+  /* 隐藏汉堡按钮 */
+  #sidebar-toggle
+    display none !important
+  /* 强制展开导航，自动换行 */
+  .nav-menu
+    display flex !important
+    flex-wrap wrap !important
+    justify-content flex-end !important
