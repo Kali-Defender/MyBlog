@@ -2,20 +2,40 @@
   {
     "id": "book_001",
     "type": "book",
-    "title": "人类简史",
-    "cover": "https://pic2.zhimg.com/v2-aa7f28bfe0ca4ab82229968ccdecb806_720w.jpg?source=172ae18b",
-    "tags": ["社科","历史"],
-    "recordDate": "2026-04-15",
-    "summary": "人类演化完整梳理",
-    "author": "尤瓦尔·赫拉利",
+    "title": "活着",
+    "cover": "/art/img/book/live.jpg",
+    "tags": ["文学", "现实题材"],
+    "recordDate": "2026-07-10",
+    "summary": "苦难之中依旧保有生存的韧性",
+    "author": "余华",
     "articles": [
       {
         "articleId": "book_art_001",
         "subTitle": "整体阅读感悟",
-        "score": 8.8,
-        "recordDate": "2026-04-20",
-        "summary": "重构人类文明认知",
-        "content": "从认知革命到现代社会，视角宏大......"
+        "score": 9.3,
+        "recordDate": "2026-07-12",
+        "summary": "人是为活着本身而活着",
+        "mdPath": "./md/book/live_001.md"
+      }
+    ]
+  },
+  {
+    "id": "book_002",
+    "type": "book",
+    "title": "平凡的世界",
+    "cover": "/art/img/book/world.jpg",
+    "tags": ["文学", "现实题材", "乡土"],
+    "recordDate": "2026-07-16",
+    "summary": "普通人在时代浪潮里的挣扎与坚守",
+    "author": "路遥",
+    "articles": [
+      {
+        "articleId": "book_art_001",
+        "subTitle": "整体阅读感悟",
+        "score": 9.1,
+        "recordDate": "2026-07-18",
+        "summary": "平凡的人，也拥有不屈的力量",
+        "mdPath": "./md/book/world_001.md"
       }
     ]
   }

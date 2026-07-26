@@ -2,29 +2,42 @@
   {
     "id": "movie_001",
     "type": "movie",
-    "title": "流浪地球3",
-    "cover": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2900219796.webp",
-    "director": "郭帆",
-    "year": 2026,
-    "tags": ["国产科幻","院线"],
+    "title": "平凡的世界",
+    "cover": "/art/img/movie/world.jpg",
+    "director": "毛卫宁",
+    "year": 2015,
+    "tags": ["国产剧集", "现实题材"],
     "recordDate": "2026-07-20",
-    "summary": "场面宏大，人类延续文明的史诗叙事",
+    "summary": "黄土高原上普通人的挣扎、理想与平凡人生",
     "articles": [
       {
         "articleId": "art_001",
         "subTitle": "整体观影感受",
         "score": 9.2,
         "recordDate": "2026-07-20",
-        "summary": "初次观影整体感受，节奏与场面点评",
-        "mdPath": "./md/movie/art_001.md"
-      },
+        "summary": "初次观影整体感受，人物塑造与时代氛围点评",
+        "mdPath": "./md/movie/world_001.md"
+      }
+    ]
+  },
+  {
+    "id": "movie_002",
+    "type": "movie",
+    "title": "士兵突击",
+    "cover": "/art/img/movie/soldier.jpg",
+    "director": "康洪雷",
+    "year": 2006,
+    "tags": ["国产剧集", "军旅", "成长"],
+    "recordDate": "2026-07-22",
+    "summary": "不抛弃、不放弃，关于坚持与自我成长的故事",
+    "articles": [
       {
-        "articleId": "art_002",
-        "subTitle": "文明内核深度剖析",
-        "score": 9.2,
-        "recordDate": "2026-07-26",
-        "summary": "从集体主义视角解析影片底层思想",
-        "mdPath": "./md/movie/art_002.md"
+        "articleId": "art_001",
+        "subTitle": "整体观影感受",
+        "score": 9.4,
+        "recordDate": "2026-07-22",
+        "summary": "许三多的蜕变，纯粹又厚重的成长叙事",
+        "mdPath": "./md/movie/soldier_001.md"
       }
     ]
   }

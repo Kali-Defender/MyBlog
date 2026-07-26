@@ -20,13 +20,74 @@
     ]
   },
   {
+    "id": "music_001",
+    "type": "music",
+    "title": "我不配",
+    "cover": "https://imge.kugou.com/stdmusic/20220705/20220705143006989099.jpg",
+    "tags": ["治愈","流行"],
+    "recordDate": "2026-07-20",
+    "summary": "温柔emo单曲",
+    "bvid": "BV1Q5kzBeEmH",
+    "articles": [
+      {
+        "articleId": "mus_art_001",
+        "subTitle": "深夜循环听感",
+        "score": null,
+        "recordDate": "2026-07-20",
+        "summary": "夜晚独处很适配",
+        "content": "深夜emo歌曲"
+      }
+    ]
+  },
+  {
+  "id": "music_001",
+  "type": "music",
+  "title": "Don't Cry",
+  "cover": "/art/img/music/don'tcry.jpg",
+  "tags": ["摇滚", "经典", "枪花"],
+  "recordDate": "2026-07-26",
+  "summary": "Guns N' Roses 经典抒情摇滚，旋律和人声都很有重量感",
+  "bvid": "BV1Ff4y1473Z",
+  "articles": [
+    {
+      "articleId": "mus_art_001",
+      "subTitle": "聆听随想",
+      "score": 9.5,
+      "recordDate": "2026-07-26",
+      "summary": "枪炮与玫瑰最适合深夜循环的一曲",
+      "content": "前奏一出来就很抓人，Axl Rose 的嗓音太有辨识度了。\n这首不是那种爆发式的硬摇滚，而是带着压抑、温柔和一点破碎感，越听越沉。"
+    }
+  ]
+  },
+  {
+  "id": "music_002",
+  "type": "music",
+  "title": "世界末日",
+  "cover": "/art/img/music/world.jpg",
+  "tags": ["华语", "周杰伦", "抒情"],
+  "recordDate": "2026-07-26",
+  "summary": "安静又落寞的经典旧作，少年心事尽数藏在旋律里",
+  "bvid": "BV1t4411978X",
+  "articles": [
+    {
+      "articleId": "mus_art_002",
+      "subTitle": "聆听随想",
+      "score": 9.2,
+      "recordDate": "2026-07-26",
+      "summary": "藏在深夜里的遗憾与怅然",
+      "content": "钢琴前奏一响起氛围感直接拉满。\n没有华丽编曲，简单干净，把无能为力的失落唱得格外戳人。"
+    }
+  ]
+  },
+
+  {
     "id": "music_002",
     "type": "music",
     "title": "你都忘了你有多美",
     "cover": "http://p1.music.126.net/MAlUrlsEQP08fEF4CsaOPQ==/109951172945878474.jpg?param=177y177",
     "tags": ["流行"],
     "recordDate": "2026-07-20",
-    "summary": "",
+    "summary": "温柔治愈单曲",
     "bvid": "BV1qCn2zwEzA",
     "articles": []
   }
