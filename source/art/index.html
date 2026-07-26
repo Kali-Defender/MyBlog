@@ -1,130 +1,162 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>生活札记 | 观影 | 听乐 | 读书 | 随笔</title>
-<link rel="stylesheet" href="./css/style.css">
-<style>
-.plate-nav-wrap {
-  width: 100%;
-  max-width: 1200px;
-  margin: 60px auto 0;
-}
-.plate-scroll-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px 32px;
-  overflow: visible;
-}
-.plate-card {
-  display: block;
-  /* 固定最小高度，彻底杜绝高度不一致导致的重叠 */
-  min-height: 240px;
-  padding: 28px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
-  /* 核心：背景图配置 + 深色渐变遮罩，保证文字可读 */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
-  background-color: rgba(0,0,0,0.55);
-  transition: all 0.26s ease;
-  position: relative;
-}
-.plate-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:16px;
-  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 45%);
-  pointer-events:none;
-}
-.plate-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255,255,255,0.16);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-}
-/* 文字提升层级，浮在背景上方 */
-.plate-card-text{
-  position:relative;
-  z-index:2;
-}
-.plate-name {
-  font-size: 1.6rem;
-  margin:0 0 8px;
-}
-.plate-desc {
-  color: var(--text-weak);
-  font-size:0.92rem;
-  line-height:1.6;
-}
-.name-movie { color: var(--color-movie); }
-.name-music { color: var(--color-music); }
-.name-book { color: var(--color-book); }
-.name-thought { color: var(--color-thought); }
-
-@media (max-width: 680px) {
-  .plate-scroll-wrapper {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活札记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar{
+            width:6px;
+            height:6px;
+        }
+        ::-webkit-scrollbar-track{
+            background:#191929;
+        }
+        ::-webkit-scrollbar-thumb{
+            background:rgba(255,255,255,0.18);
+            border-radius:3px;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background:rgba(255,255,255,0.3);
+        }
+        body {
+            background-color: #14141f;
+            color: #eeeeee;
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+        .page-header {
+            margin-bottom: 36px;
+        }
+        .back-link {
+            font-size: 14px;
+            opacity: 0.75;
+            color: #cccccc;
+            text-decoration: none;
+            transition: all 0.24s ease;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+            padding-left:4px;
+        }
+        .page-header h1 {
+            margin: 12px 0 8px;
+            font-size: 34px;
+        }
+        .sub-title {
+            opacity: 0.72;
+            font-size: 16px;
+        }
+        .life-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+        .life-card {
+            display: block;
+            height: 320px;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.08);
+            text-decoration: none;
+            color: #fff;
+        }
+        .life-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        }
+        .card-bg {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.35s ease;
+        }
+        .life-card:hover .card-bg{
+            transform: scale(1.06);
+        }
+        .card-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.25);
+        }
+        .card-desc {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 24px;
+            backdrop-filter: blur(10px);
+        }
+        .card-desc h3 {
+            font-size: 22px;
+            margin: 0 0 6px;
+        }
+        .card-desc p {
+            opacity: 0.78;
+            font-size: 14px;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .life-container {
+                grid-template-columns: 1fr;
+            }
+            .life-card {
+                height: 260px;
+            }
+        }
+    </style>
 </head>
 <body>
-<header class="site-header">
-  <a href="/" class="back-blog-link">← 返回博客首页（技术札记）</a>
-  <div class="header-title-wrap">
-    <h1 class="main-title">生活札记</h1>
-    <p class="sub-title">观影 | 听乐 | 读书 | 随笔</p>
-  </div>
-</header>
-
-<main class="main-container">
-  <section class="plate-nav-wrap">
-    <div class="plate-scroll-wrapper">
-      <!-- 影视馆 -->
-      <a href="./movie/index.html" class="plate-card" style="background-image: url('./img/bg-movie.jpg');">
-        <div class="plate-card-text">
-          <h2 class="plate-name name-movie">影视馆</h2>
-          <p class="plate-desc">院线电影、连续剧观影记录与影评</p>
-        </div>
-      </a>
-      <!-- 音乐馆 -->
-      <a href="./music/index.html" class="plate-card" style="background-image: url('./img/bg-music.jpg');">
-        <div class="plate-card-text">
-          <h2 class="plate-name name-music">音乐馆</h2>
-          <p class="plate-desc">单曲、专辑聆听，内嵌B站音频试听</p>
-        </div>
-      </a>
-      <!-- 书籍馆 -->
-      <a href="./book/index.html" class="plate-card" style="background-image: url('./img/bg-book.jpg');">
-        <div class="plate-card-text">
-          <h2 class="plate-name name-book">书籍馆</h2>
-          <p class="plate-desc">实体/电子书阅读记录与读后感</p>
-        </div>
-      </a>
-      <!-- 随笔 -->
-      <a href="./thought/index.html" class="plate-card" style="background-image: url('./img/bg-thought.jpg');">
-        <div class="plate-card-text">
-          <h2 class="plate-name name-thought">随笔</h2>
-          <p class="plate-desc">日常感悟、碎片化灵感与情绪记录</p>
-        </div>
-      </a>
+    <div class="page-header">
+        <a href="/" class="back-link">← 返回博客首页（技术札记）</a>
+        <h1>生活札记</h1>
+        <p class="sub-title">观影 · 听乐 · 读书 · 随笔</p>
     </div>
-  </section>
-</main>
 
-<footer class="site-footer">
-  <p class="update-tip"></p>
-</footer>
+    <div class="life-container">
+        <a href="/art/movie/" class="life-card">
+            <div class="card-bg" style="background-image:url('img/bg-movie.jpg')"></div>
+            <div class="card-desc" style="background:rgba(178, 136, 255,0.12);border-top:1px solid rgba(178, 136, 255,0.25)">
+                <h3>影视馆</h3>
+                <p>院线电影、连续剧观影记录与影评</p>
+            </div>
+        </a>
 
-<script src="./js/utils.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', async () => {
-  const footerTip = document.querySelector('.update-tip');
-});
-</script>
+        <a href="/art/music/" class="life-card">
+            <div class="card-bg" style="background-image:url('img/bg-music.jpg')"></div>
+            <div class="card-desc" style="background:rgba(119, 184, 255,0.12);border-top:1px solid rgba(119, 184, 255,0.25)">
+                <h3>音乐馆</h3>
+                <p>单曲、专辑聆听，内嵌B站音频试听</p>
+            </div>
+        </a>
+
+        <a href="/art/book/" class="life-card">
+            <div class="card-bg" style="background-image:url('img/bg-book.jpg')"></div>
+            <div class="card-desc" style="background:rgba(106, 168, 137,0.12);border-top:1px solid rgba(134, 193, 163,0.25)">
+                <h3>书籍馆</h3>
+                <p>实体/电子书阅读记录与读后感</p>
+            </div>
+        </a>
+
+        <a href="/art/thought/" class="life-card">
+            <div class="card-bg" style="background-image:url('img/bg-thought.jpg')"></div>
+            <div class="card-desc" style="background:rgba(232, 120, 112,0.12);border-top:1px solid rgba(232, 120, 112,0.25)">
+                <h3>随笔</h3>
+                <p>日常感悟、碎片化灵感与情绪记录</p>
+            </div>
+        </a>
+    </div>
 </body>
 </html>
