@@ -1,9 +1,14 @@
+// 手机端：隐藏汉堡，强制展开顶部完整导航
 @media (max-width: 768px)
-  /* 隐藏汉堡按钮 */
   #sidebar-toggle
     display none !important
-  /* 强制展开导航，自动换行 */
-  .nav-menu
+  #nav
+    height auto !important
+  #nav .menus
     display flex !important
     flex-wrap wrap !important
+    gap 8px
     justify-content flex-end !important
+    position relative !important
+    visibility visible !important
+    opacity 1 !important
