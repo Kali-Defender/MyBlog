@@ -176,7 +176,7 @@ const Utils = (() => {
       modalContentBox.prepend(wrap);
       // 跳转详情页 传主体ID
       modalContentBox.querySelector(".modal-full-btn").onclick = () => {
-        window.location.href = `/art/article/index.html?mainId=${item.id}&type=${item.type}`;
+        window.location.href = `/art/article/index.html?id=${item.id}&type=${item.type}`;
         closeModal();
       };
     }
@@ -216,7 +216,7 @@ const Utils = (() => {
       modalContentBox.prepend(wrap);
       // 随笔跳转传单条id
       modalContentBox.querySelector(".modal-full-btn").onclick = () => {
-        window.location.href = `/art/article/index.html?thoughtId=${item.id}`;
+        window.location.href = `/art/article/index.html?id=${item.id}`;
         closeModal();
       };
     }

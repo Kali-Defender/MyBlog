@@ -15,7 +15,7 @@
         "score": 9.3,
         "recordDate": "2026-07-12",
         "summary": "人是为活着本身而活着",
-        "mdPath": "./md/book/live_001.md"
+        "mdPath": "/art/md/book/live_001.md"
       }
     ]
   },
@@ -35,7 +35,7 @@
         "score": 9.1,
         "recordDate": "2026-07-18",
         "summary": "平凡的人，也拥有不屈的力量",
-        "mdPath": "./md/book/world_001.md"
+        "mdPath": "/art/md/book/world_001.md"
       }
     ]
   }
