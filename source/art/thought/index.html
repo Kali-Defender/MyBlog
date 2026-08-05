@@ -46,13 +46,19 @@
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* 修复弹窗裁切：不要在卡片使用transform，改用margin模拟上浮，避免合成层bug */
+  transition: margin 0.3s ease, box-shadow 0.3s ease;
+  margin-top:0;
+  margin-bottom:0;
+  z-index:1;
 }
 .thought-card.hidden{
   display:none;
 }
 .thought-card:hover {
-  transform: translateY(-4px);
+  /* ❗重点：弃用transform:translateY，改用margin，彻底解决overflow:hidden带来的渲染层裁切弹窗bug */
+  margin-top: -4px;
+  margin-bottom:4px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
 }
 .thought-bg {
@@ -219,7 +225,12 @@ function renderTags(){
 function refreshFilter(){
   const cards = wrap.querySelectorAll(".thought-card");
   document.querySelectorAll(".tag-btn").forEach(btn=>{
-    btn.classList.toggle("active", selectedTags.has(btn.innerText));
+    //修复全部按钮高亮
+    if(btn.innerText === "全部"){
+      btn.classList.toggle("active", selectedTags.size === 0);
+    }else{
+      btn.classList.toggle("active", selectedTags.has(btn.innerText));
+    }
   });
   cards.forEach(card=>{
     const cardTags = JSON.parse(card.dataset.tags);
@@ -233,6 +244,7 @@ function refreshFilter(){
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  // ✅修复路径！data目录下的thoughts.json
   allData = await Utils.loadJson("thoughts.json");
   wrap.innerHTML = "";
   if (allData.length === 0) {

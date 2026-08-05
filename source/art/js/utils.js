@@ -65,7 +65,7 @@ const Utils = (() => {
   function initModal() {
     if (modalContainer) return;
     modalContainer = document.createElement("div");
-    modalContainer.style = `position:fixed;inset:0;z:999;display:none;align-items:center;justify-content:center;padding:24px`;
+    modalContainer.style = `position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px`;
     modalMask = document.createElement("div");
     modalMask.style = `position:absolute;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px)`;
     modalContentBox = document.createElement("div");
@@ -215,8 +215,10 @@ const Utils = (() => {
 
       modalContentBox.prepend(wrap);
       // 随笔跳转传单条id
+      // 随笔跳转传单条id + type=thought
       modalContentBox.querySelector(".modal-full-btn").onclick = () => {
-        window.location.href = `/art/article/index.html?id=${item.id}`;
+  // ✅直接写死字符串 "thought"，不要读取item.type
+        window.location.href = `/art/article/index.html?id=${item.id}&type=thought`;
         closeModal();
       };
     }

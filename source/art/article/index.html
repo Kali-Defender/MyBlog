@@ -150,34 +150,47 @@ async function renderMain(mainItem) {
   }
   html += `</div>`;
 
-  // 循环渲染每一篇感想
-  if(!mainItem.articles || mainItem.articles.length === 0){
-    html += `<p class="empty-tip">暂无感想记录</p>`;
+  // =========关键区分：thought随笔是扁平，没有articles数组=========
+  if(mainItem.type === "thought"){
+    // 随笔：读取mdPath加载markdown正文
+    let articleBody;
+    try{
+      articleBody = await Utils.loadMarkdown(mainItem.mdPath);
+    }catch(err){
+      articleBody = `<p style="color:#ff8888;">感想正文加载失败，请检查md文件路径：${mainItem.mdPath}</p>`;
+    }
+    html += `<div class="article-block">
+      <div class="article-content">${articleBody}</div>
+    </div>`;
   }else{
-    for(const art of mainItem.articles){
-      let articleBody;
-      if(mainItem.type === "music"){
-        // 音乐：直接读取JSON内content，换行转换
-        articleBody = art.content ? art.content.replaceAll('\n','<br>') : "<p>暂无正文</p>";
-      }else{
-        // 影视/书籍/随笔：加载外部md文件
-        try{
-          articleBody = await Utils.loadMarkdown(art.mdPath);
-        }catch(err){
-          articleBody = `<p style="color:#ff8888;">感想正文加载失败，请检查md文件路径：${art.mdPath}</p>`;
+    // movie / music / book：有articles嵌套数组
+    if(!mainItem.articles || mainItem.articles.length === 0){
+      html += `<p class="empty-tip">暂无感想记录</p>`;
+    }else{
+      for(const art of mainItem.articles){
+        let articleBody;
+        if(mainItem.type === "music"){
+          // 音乐：直接读取JSON内content，换行转换
+          articleBody = art.content ? art.content.replaceAll('\n','<br>') : "<p>暂无正文</p>";
+        }else{
+          // 影视/书籍：加载外部md文件
+          try{
+            articleBody = await Utils.loadMarkdown(art.mdPath);
+          }catch(err){
+            articleBody = `<p style="color:#ff8888;">感想正文加载失败，请检查md文件路径：${art.mdPath}</p>`;
+          }
         }
+        html += `<div class="article-block">
+          <h3 class="block-title">${art.subTitle}</h3>
+          <div class="block-meta">感想记录：${Utils.formatDate(art.recordDate)}
+          ${art.score!==null ? `｜评分：${art.score}` : ""}</div>
+          <div class="article-content">${articleBody}</div>
+        </div>`;
       }
-      html += `<div class="article-block">
-        <h3 class="block-title">${art.subTitle}</h3>
-        <div class="block-meta">感想记录：${Utils.formatDate(art.recordDate)}
-        ${art.score!==null ? `｜评分：${art.score}` : ""}</div>
-        <div class="article-content">${articleBody}</div>
-      </div>`;
     }
   }
   box.innerHTML = html;
 }
-
 document.addEventListener("DOMContentLoaded", async ()=>{
   const itemId = getUrlParam("id");
   const type = getUrlParam("type");
@@ -200,6 +213,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
       setTimeout(()=>history.back(),2000);
       return;
     }
+    targetItem.type = type;
     await renderMain(targetItem);
   }catch(e){
     box.innerHTML = `<p class="empty-tip">数据加载异常：${e.message}</p>`;
