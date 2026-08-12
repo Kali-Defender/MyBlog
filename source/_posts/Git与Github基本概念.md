@@ -2,7 +2,7 @@
 title: Git与Github基本概念
 date: 2026/6/16
 categories: 
-  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 工具与AI实践  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - Git
   - GitHub
