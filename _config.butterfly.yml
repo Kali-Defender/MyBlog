@@ -523,7 +523,7 @@ local_search:
   CDN:
   # 搜索框占位文字、提示文案（关键）
   labels:
-    input_placeholder: "搜索后端｜AI｜虚拟机｜操作系统笔记"
+    input_placeholder: "搜索运维｜AI｜Linux笔记"
     hits_empty: "未找到相关笔记，换个关键词试试"
     hits_stats: "共找到 ${hits} 篇相关文章"
 
