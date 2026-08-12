@@ -2,7 +2,7 @@
 title: Linux入门指南：从系统概念到基础命令实战
 date: 2026/6/19
 categories: 
-  - 环境运维  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 运维基础  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - Linux
 cover: /img/Linux1/p2.png

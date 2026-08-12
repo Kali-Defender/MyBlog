@@ -2,7 +2,7 @@
 title: MySQL笔记-第3篇：一篇搞懂事务、ACID和隔离级别
 date: 2026/6/11
 categories: 
-  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - MySQL
 cover: /img/Mysql_3/p1.png

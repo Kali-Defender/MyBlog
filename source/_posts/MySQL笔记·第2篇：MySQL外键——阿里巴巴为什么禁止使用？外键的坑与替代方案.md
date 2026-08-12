@@ -2,7 +2,7 @@
 title: MySQL笔记·第2篇：MySQL外键——阿里巴巴为什么禁止使用？外键的坑与替代方案
 date: 2026/6/11
 categories: 
-  - 后端开发  # 注意这里用的是列表，即使只有一个也可以写成单行
+  - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - MySQL
 cover: /img/Mysql_2/p1.png
