@@ -4,7 +4,6 @@ date: 2026/7/20
 categories: 
   - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
-  - Clash
   - VMware
 cover: /img/daili/p1.png
 description: 本文梳理VMware虚拟机代理排障全流程，涵盖端口监听校验、防火墙入站规则及Git代理配置等核心要点。
