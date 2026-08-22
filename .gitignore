@@ -6,3 +6,12 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+#本地基线备份，不提交git
+backup/
+
+node_modules/
+public/
+db.json
+*.log
+.deploy_git/
+.cache/
