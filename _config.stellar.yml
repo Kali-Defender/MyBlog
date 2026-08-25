@@ -40,23 +40,33 @@ favicon: /img/favicon.png
 
 # 侧边栏主功能导航菜单
 menubar:
-  columns: 4 # 一行4个按钮，按需改成3
+  columns: 4
   items:
     - id: post
       theme: '#1BCDFC'
-      icon: default:documents
+      icon: https://api.iconify.design/ph:files.svg
       title: 博客
       url: /
     - id: tools
       theme: '#009688'
-      icon: https://api.iconify.design/streamline-plump-color:wrench-circle-flat.svg
+      icon: https://api.iconify.design/ph:wrench.svg
       title: 工具资源
       url: /tools/
+    - id: friends
+      theme: '#FF5722'
+      icon: https://api.iconify.design/ph:link.svg
+      title: 友链
+      url: /friends/
     - id: about
       theme: '#9C27B0'
-      icon: default:shield-user
+      icon: https://api.iconify.design/ph:user.svg
       title: 关于
       url: /about/
+    - id: wander
+      theme: '#607D8B'
+      icon: https://api.iconify.design/ph:compass.svg
+      title: 随便逛逛
+      url: https://meet-blog.buyixiao.xyz/?random=on&ref=https%3A%2F%2Fqixia.site
 
 
 
@@ -665,3 +675,9 @@ widgets:
     avatar: true
     menu: true
 
+links:
+  my_friends:
+    - title: Meet Blog 博客星图
+      url: https://meet-blog.buyixiao.xyz/?ref=https%3A%2F%2Fqixia.site
+      avatar: https://meet-blog.buyixiao.xyz/favicon.svg
+      description: 中文独立博客星系

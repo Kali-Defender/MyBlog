@@ -4,7 +4,7 @@ layout: page
 type: "about"
 comments: false
 menu_id: about
-banner: /img/about.png
+banner: /img/head.png
 ---
 
 
