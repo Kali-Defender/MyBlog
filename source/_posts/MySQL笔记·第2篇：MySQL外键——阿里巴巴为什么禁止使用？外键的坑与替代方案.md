@@ -5,7 +5,7 @@ categories:
   - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - MySQL
-cover: /img/Mysql_2/p1.png
+banner: /img/head.png
 ---
 
 ### 一、外键是什么？

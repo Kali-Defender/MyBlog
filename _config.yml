@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 七夏的技术札记🐿️
+title: 七夏的技术札记
 subtitle: '落羽拾光'
 description: '计算机本科生技术成长记录｜专注运维、AI 实践、开发环境踩坑排错'
 keywords: '技术,运维,AI,开发环境,踩坑排错'
@@ -61,7 +61,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 5
   order_by: -date
 
 # Category & Tag
@@ -84,7 +84,7 @@ updated_option: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 10
+per_page: 5
 pagination_dir: page
 
 # Include / Exclude file(s)
@@ -96,7 +96,9 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: butterfly
+# theme: butterfly
+theme: stellar
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -115,6 +117,6 @@ search:
   field: post
   content: true
 
-
+favicon: /img/favicon.png
 
 

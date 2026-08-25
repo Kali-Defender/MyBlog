@@ -6,7 +6,8 @@ categories:
 tags: 
   - Linux
   - 网络配置
-cover: /img/Linux2/p1.png
+banner: /img/head.png
+
 description: 本文提供Ubuntu 24.04 Server下netplan配置DHCP自动获取IP和静态固定IP的完整实战步骤，重点强调yaml缩进规范、netplan try测试防断网，以及DNS和网关的正确设置。
 ---
 

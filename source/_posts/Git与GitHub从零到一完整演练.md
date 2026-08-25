@@ -8,7 +8,7 @@ tags:
   - GitHub
   - 开发工具
   - SSH
-cover: /img/Git_2/p1.png
+banner: /img/head.png
 ---
 
 

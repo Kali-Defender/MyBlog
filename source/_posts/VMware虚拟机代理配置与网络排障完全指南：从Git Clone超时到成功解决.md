@@ -5,7 +5,7 @@ categories:
   - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - VMware
-cover: /img/daili/p1.png
+banner: /img/head.png
 description: 本文梳理VMware虚拟机代理排障全流程，涵盖端口监听校验、防火墙入站规则及Git代理配置等核心要点。
 ---
 > **适用场景**：宿主机（Windows）已配置代理工具，VMware虚拟机（Ubuntu）能Ping通外网或显示已连接，但执行`git clone`长时间卡顿或报错`Failed to connect`。

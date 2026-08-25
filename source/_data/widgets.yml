@@ -1,0 +1,45 @@
+welcome: 
+
+recent:
+  count: 5
+  title: Recent
+
+ghuser:
+  layout: ghuser
+  username: Kali-Defender # your github login username
+  avatar: true # show avatar or not
+  menu: true # show menu or not
+
+notice:
+  layout: markdown
+  title: 📢 公告通知
+  content: |
+    <div style="font-size: 14px; line-height: 1.6;">
+      你好，我是 七夏 👋<br><br>
+      本博客专注云原生运维学习记录：<br>
+      🔧 <strong>技术</strong>：Linux / Docker / Shell / Ansible 实战踩坑笔记<br>
+      <br>
+      不追热点，不装深刻。<br>
+      只沉淀实操向技术笔记，记录普通运维学习者的成长。<br><br>
+      <strong>欢迎一起交流学习。</strong>
+    </div>
+
+busuanzi:
+  layout: markdown
+  title: 站点统计
+  content: |
+    <div>
+    <p>👀总访问量：<span id="busuanzi_value_site_pv">--</span> 次</p>
+    <p>👤独立访客：<span id="busuanzi_value_site_uv">--</span> 人</p>
+    </div>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+contact:
+  layout: markdown
+  title: 联系方式
+  content: |
+    - 邮箱：`15580117671@163.com`
+    - 手机号：`15580117671`
+    
+    
+    

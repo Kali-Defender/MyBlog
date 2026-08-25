@@ -5,7 +5,7 @@ categories:
   - 运维基础  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - Linux
-cover: /img/Linux1/p2.png
+banner: /img/head.png
 description: 本文以实操报错为例，用比喻讲解用户组、权限、压缩、查看命令的常见误区，强调慎用sudo、多用附加组和chown，并养成操作前确认路径的习惯。
 ---
  

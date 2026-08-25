@@ -5,7 +5,7 @@ categories:
   - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
 tags: 
   - MySQL
-cover: /img/Mysql_1/p1.png
+banner: /img/head.png
 ---
 
 SQL（Structured Query Language）结构化查询语言，主要分为四大类别：**DDL（数据定义语言）**、**DML（数据操作语言）**、**DQL（数据查询语言）** 和 **DCL（数据控制语言）**。
