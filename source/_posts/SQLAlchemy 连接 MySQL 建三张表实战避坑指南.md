@@ -1,5 +1,5 @@
 ---
-title: CMDB平台实战-第1篇：FastAPI 从安装到 Hello World 实战避坑指南
+title: CMDB平台实战-第2篇：SQLAlchemy 连接 MySQL 建三张表实战避坑指南
 date: 2026/10/1
 categories: 
   - CMDB + 自动化运维平台  
