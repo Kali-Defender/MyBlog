@@ -1,0 +1,138 @@
+/* GitHub 风格提交热力图（小绿板） */
+.gh-heatmap {
+  --gh-cell-size: 10px;
+  --gh-cell-gap: 2px;
+  /* 浅色模式色阶（GitHub 官方配色） */
+  --gh-level-0: #ebedf0;
+  --gh-level-1: #9be9a8;
+  --gh-level-2: #40c463;
+  --gh-level-3: #30a14e;
+  --gh-level-4: #216e39;
+  --gh-cell-border: rgba(27, 31, 35, 0.06);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* 深色模式：跟随 Stellar 的 data-theme 标记 */
+:root[data-theme="dark"] .gh-heatmap {
+  --gh-level-0: #161b22;
+  --gh-level-1: #0e4429;
+  --gh-level-2: #006d32;
+  --gh-level-3: #26a641;
+  --gh-level-4: #39d353;
+  --gh-cell-border: rgba(240, 246, 252, 0.1);
+}
+
+/* 深色模式：跟随系统偏好（当未显式指定 data-theme 时） */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .gh-heatmap {
+    --gh-level-0: #161b22;
+    --gh-level-1: #0e4429;
+    --gh-level-2: #006d32;
+    --gh-level-3: #26a641;
+    --gh-level-4: #39d353;
+    --gh-cell-border: rgba(240, 246, 252, 0.1);
+  }
+}
+
+.gh-heatmap__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.gh-heatmap__total {
+  font-weight: 600;
+}
+
+.gh-heatmap__link {
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+.gh-heatmap__scroll {
+  overflow-x: auto;
+  padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gh-heatmap__scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gh-heatmap__scroll::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.35);
+  border-radius: 3px;
+}
+
+.gh-heatmap__months {
+  position: relative;
+  height: 14px;
+  margin-bottom: 4px;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.gh-heatmap__months span {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.gh-heatmap__grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, var(--gh-cell-size));
+  grid-auto-columns: var(--gh-cell-size);
+  gap: var(--gh-cell-gap);
+  width: max-content;
+}
+
+.gh-cell {
+  display: block;
+  width: var(--gh-cell-size);
+  height: var(--gh-cell-size);
+  border-radius: 2px;
+  background: var(--gh-level-0);
+  outline: 1px solid var(--gh-cell-border);
+  outline-offset: -1px;
+}
+
+.gh-cell--empty {
+  background: transparent !important;
+  outline: none;
+  cursor: default;
+}
+
+.gh-heatmap .gh-cell[data-level="1"] { background: var(--gh-level-1); }
+.gh-heatmap .gh-cell[data-level="2"] { background: var(--gh-level-2); }
+.gh-heatmap .gh-cell[data-level="3"] { background: var(--gh-level-3); }
+.gh-heatmap .gh-cell[data-level="4"] { background: var(--gh-level-4); }
+
+a.gh-cell:hover {
+  outline: 1px solid rgba(0, 0, 0, 0.35);
+  outline-offset: -1px;
+}
+
+.gh-heatmap__legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.gh-heatmap__legend .gh-cell {
+  width: 10px;
+  height: 10px;
+}
+
+.gh-heatmap__error {
+  display: inline-block;
+  padding: 4px 0;
+  opacity: 0.8;
+}

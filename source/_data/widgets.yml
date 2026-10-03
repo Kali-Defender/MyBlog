@@ -40,6 +40,20 @@ contact:
   content: |
     - 邮箱：`15580117671@163.com`
     - 手机号：`15580117671`
+
+# GitHub 风格提交热力图（博客仓库版）
+ghheatmap:
+  layout: markdown
+  title: 博客提交热力图
+  content: |
+    <div class="gh-heatmap" data-repo="Kali-Defender/MyBlog">
+      <div class="gh-heatmap__summary"><span>过去一年共 <b class="gh-heatmap__total">…</b> 次提交</span><a class="gh-heatmap__link" href="https://github.com/Kali-Defender/MyBlog" target="_blank" rel="noopener noreferrer">@Kali-Defender/MyBlog</a></div>
+      <div class="gh-heatmap__scroll">
+        <div class="gh-heatmap__months"></div>
+        <div class="gh-heatmap__grid" role="img" aria-label="博客仓库提交热力图"></div>
+      </div>
+      <div class="gh-heatmap__legend"><span>少</span><span class="gh-cell" data-level="0"></span><span class="gh-cell" data-level="1"></span><span class="gh-cell" data-level="2"></span><span class="gh-cell" data-level="3"></span><span class="gh-cell" data-level="4"></span><span>多</span></div>
+    </div>
     
     
     

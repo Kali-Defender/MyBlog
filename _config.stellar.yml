@@ -28,6 +28,13 @@ open_graph:
 structured_data:
   links: [] # your social links.
 
+# 自定义资源注入（提交热力图小组件的 css/js）
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/gh-heatmap.css">
+  script:
+    - <script src="/js/gh-heatmap.js"></script>
+
 
 ######## Sidebar ########
 # 左上角显示的 logo 区域，包含图标、大标题、副标题
@@ -78,7 +85,7 @@ site_tree:
   # 主页配置
   home:
     leftbar: [welcome, recent,busuanzi]
-    rightbar: [tagcloud,notice,toc,ghuser,contact]
+    rightbar: [tagcloud,notice,toc,ghuser,ghheatmap,contact]
     # 首页评论区，默认不显示。可设为 true 使用全局评论服务，
     # 或参考页面 front-matter 覆盖评论参数：
     # service、comment_title、comment_id 及 beaudar/utterances/giscus/twikoo/waline/artalk 各服务参数。
