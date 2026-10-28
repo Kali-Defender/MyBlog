@@ -20,24 +20,28 @@ FinalShell - 终端模拟、会话管理、远程连接  https://finalshell.com/
 
 ---
 🐳 容器与虚拟化工具
+
 Docker / K8s / 虚拟机 相关工具与镜像资源
 - 工具名称｜简介｜下载/链接
-
+ Debian13 Debian系统：[清华镜像站下载目录](https://mirrors.tuna.tsinghua.edu.cn/debian-cd/current/amd64/iso-cd/)
 ---
 ⚙️ 自动化与运维工具
 批量运维、脚本、自动化、监控、告警工具
 - 工具名称｜简介｜下载/链接
-
+Ansible 自动化运维工具 pip install ansible
 ---
 📝 开发与效率工具
 编辑器、Git、文档、格式转换、辅助工具
 - 工具名称｜简介｜下载/链接
 Git  源码管理  https://git-scm.com/
+Visual Studio Code 编辑器 [Visual Studio Code下载](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user)
+
 ---
 📚 官方权威文档
 日常优先查阅的官方文档站点
 - 文档名称｜用途｜链接
 鸟哥的Linux私房菜 Linux百科全书 http://linux.vbird.org/
+Ansible官方文档 Ansible字典 https://docs.ansible.org.cn/
 ---
 📖 优质学习资源
 教程站点、手册、开源项目、实战资源

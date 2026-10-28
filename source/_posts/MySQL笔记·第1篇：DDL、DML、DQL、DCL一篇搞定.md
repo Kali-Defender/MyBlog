@@ -1,13 +1,3 @@
----
-title: MySQL笔记·第1篇：DDL、DML、DQL、DCL一篇搞定
-date: 2026/6/11
-categories: 
-  - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
-tags: 
-  - MySQL
-banner: /img/head.png
----
-
 SQL（Structured Query Language）结构化查询语言，主要分为四大类别：**DDL（数据定义语言）**、**DML（数据操作语言）**、**DQL（数据查询语言）** 和 **DCL（数据控制语言）**。
 
 ---
