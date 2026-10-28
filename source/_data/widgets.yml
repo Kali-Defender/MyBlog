@@ -32,7 +32,7 @@ busuanzi:
     <p>👀总访问量：<span id="busuanzi_value_site_pv">--</span> 次</p>
     <p>👤独立访客：<span id="busuanzi_value_site_uv">--</span> 人</p>
     </div>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script defer src="https://events.vercount.one/js"></script>
 
 contact:
   layout: markdown

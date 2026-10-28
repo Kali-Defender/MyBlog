@@ -1,3 +1,14 @@
+---
+title: MySQL笔记·第1篇：DDL、DML、DQL、DCL一篇搞定
+date: 2026/10/28
+categories: 
+  - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
+tags: 
+  - Linux
+  - MySQL
+banner: /img/head.png
+description: 系统梳理 SQL 四大类别——DDL（数据库/表/字段定义与数据类型）、DML（增删改）、DQL（基础/条件/聚合/分组/排序/分页查询及执行顺序）、DCL（用户与权限管理）的语法与注意事项
+---
 SQL（Structured Query Language）结构化查询语言，主要分为四大类别：**DDL（数据定义语言）**、**DML（数据操作语言）**、**DQL（数据查询语言）** 和 **DCL（数据控制语言）**。
 
 ---

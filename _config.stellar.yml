@@ -32,6 +32,7 @@ structured_data:
 inject:
   head:
     - <link rel="stylesheet" href="/css/gh-heatmap.css">
+    - <link rel="stylesheet" href="/css/icons-local.css">
   script:
     - <script src="/js/gh-heatmap.js"></script>
 
@@ -51,27 +52,27 @@ menubar:
   items:
     - id: post
       theme: '#1BCDFC'
-      icon: https://api.iconify.design/ph:files.svg
+      icon: default:menu-files
       title: 博客
       url: /
     - id: tools
       theme: '#009688'
-      icon: https://api.iconify.design/ph:wrench.svg
+      icon: default:menu-wrench
       title: 工具资源
       url: /tools/
     - id: friends
       theme: '#FF5722'
-      icon: https://api.iconify.design/ph:link.svg
+      icon: default:menu-link
       title: 友链
       url: /friends/
     - id: about
       theme: '#9C27B0'
-      icon: https://api.iconify.design/ph:user.svg
+      icon: default:menu-user
       title: 关于
       url: /about/
     - id: wander
       theme: '#607D8B'
-      icon: https://api.iconify.design/ph:compass.svg
+      icon: default:menu-compass
       title: 随便逛逛
       url: https://meet-blog.buyixiao.xyz/?random=on&ref=https%3A%2F%2Fqixia.site
 
@@ -282,10 +283,12 @@ comments:
 footer:
   social:
     github:
-      icon: '<img src="https://api.iconify.design/mdi:github.svg?color=currentColor" style="vertical-align:middle;height:1.2em;margin-right:4px;"><span>GitHub</span>'
+      icon: default:github
+      title: GitHub
       url: https://github.com/Kali-Defender
     comments:
-      icon: '<img src="https://api.iconify.design/mdi:comment-text.svg?color=currentColor" style="vertical-align:middle;height:1.2em;margin-right:4px;"><span>留言板</span>'
+      icon: default:tocomment
+      title: 留言板
       url: /message/
 
 
@@ -595,7 +598,7 @@ style:
     codeblock: 'Menlo, Monaco, Consolas, system-ui, monospace, sans-serif'
   text-align: left
   prefix:
-    h2: https://api.iconify.design/ci:heading-h2.svg
+    h2: default:heading-h2
   border-radius:
     card-l: 24px # 侧边栏、文章横幅位置的圆角
     card: 16px # 文章内大部分卡片的圆角

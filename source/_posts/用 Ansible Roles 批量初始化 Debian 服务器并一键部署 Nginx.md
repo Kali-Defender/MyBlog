@@ -1,4 +1,13 @@
-
+---
+title: 用 Ansible Roles 批量初始化 Debian 服务器并一键部署 Nginx
+date: 2026/10/28
+categories: 
+  - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
+tags: 
+  - Linux
+banner: /img/head.png
+description: 本文记录了用 Ansible Roles 和两个 playbook 批量初始化 3 台 Debian 服务器并一键部署 Nginx，并通过 `/hello` 探针和 `changed=0` 验证幂等的实践。
+---
 
 > 一次「从零到可用 Web 集群」的实践记录：3 台 Debian 受控机，2 个 playbook，6 个初始化步骤，1 个 `/hello` 探针。
 > 项目：`ansible_project`（MIT-0）

@@ -1,4 +1,14 @@
-
+---
+title: MySQL笔记-第3篇：一篇搞懂事务、ACID和隔离级别
+date: 2026/10/28
+categories: 
+  - 运维进阶  # 注意这里用的是列表，即使只有一个也可以写成单行
+tags: 
+  - Linux
+  - MySQL
+banner: /img/head.png
+description: 以转账为例讲清事务“要么全成功、要么全失败”的概念与 START TRANSACTION/COMMIT/ROLLBACK 用法，介绍 ACID 四特性、MySQL 自动提交的坑，以及四种隔离级别对应解决的脏读、不可重复读、幻读问题及性能权衡。
+---
 
 
 ### 一、事务是什么？
