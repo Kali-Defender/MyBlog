@@ -49,14 +49,14 @@ touch inventory.ini
 ```bash
 ansible-inventory -i inventory.ini --list
 ```
-![验证清单](../img/Ansible/验证清单.png)
+![验证清单](/img/Ansible/验证清单.png)
 
 ### 4. 对清单中的 `myhosts` 组执行 Ping 操作
 清单没问题后，先用最轻量的 ping 模块探一探连通性：
 ```bash
 ansible myhosts -m ping -i inventory.ini
 ```
-![ping错误](../img/Ansible/ping错误.png)
+![ping错误](/img/Ansible/ping错误.png)
 
 这里的报错是正常的。第一次通过 SSH 连接一台新机器时，SSH 客户端（也就是你的 Ansible 主控机）会要求确认目标主机的指纹。因为你的 `~/.ssh/known_hosts` 文件里没有这三台机器的记录，而 Ansible 默认的安全策略是拒绝连接未知主机，因此报了 `Host key verification failed`。
 
@@ -69,10 +69,10 @@ ansible myhosts -m ping -i inventory.ini
 > ```
 
 这里需要交互一下，选 `yes` 确认连接，需要对受控系统执行登录操作。
-![交互](../img/Ansible/交互.png)
+![交互](/img/Ansible/交互.png)
 
 重新 ping 还是报错：
-![ping错误1](../img/Ansible/ping错误1.png)
+![ping错误1](/img/Ansible/ping错误1.png)
 
 这说明光确认指纹还不够，还需要免密登录。执行命令：
 ```bash
@@ -86,7 +86,7 @@ ssh-copy-id debian@192.168.118.103
 ```
 
 再次 ping 就成功了！
-![成功](../img/Ansible/成功.png)
+![成功](/img/Ansible/成功.png)
 
 这里的报错是 Ansible 自动扫描到了受控机的 Python 解释器（`/usr/bin/python3.13`），但它警告你：如果没有在配置里“写死”，以后受控机如果安装了其他版本的 Python，Ansible 可能会找错版本导致报错。
 
@@ -104,7 +104,7 @@ ssh-copy-id debian@192.168.118.103
 > ```
 
 再次 ping，红字警告消失，到这就完全胜利了！
-![成功1](../img/Ansible/成功1.png)
+![成功1](/img/Ansible/成功1.png)
 
 ## 三、创建并运行第一个剧本（Playbook）
 
@@ -130,7 +130,7 @@ ansible-playbook -i inventory.ini playbook.yaml
 ```
 
 运行结果：
-![剧本成功](../img/Ansible/剧本成功.png)
+![剧本成功](/img/Ansible/剧本成功.png)
 
 ## 四、Playbook 编写技巧：剧本翻译笔记
 

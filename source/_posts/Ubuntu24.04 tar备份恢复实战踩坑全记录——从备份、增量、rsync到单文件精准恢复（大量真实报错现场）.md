@@ -142,7 +142,7 @@ ls ~/project/config/
 
 > 说明：tar单文件恢复**只能识别压缩包内部原生路径**；如果写系统路径`~/project/xxx`，会抛出`Not found in archive`。恢复前必须查看包内路径。
 
-![路径错误](/omg/Linux2/cuowulujing.png)
+![路径错误](/img/Linux2/cuowulujing.png)
 优先确定文档在压缩包里的真实路径。
 ![正确路径](/img/Linux2/zhengquelujing.png)
 

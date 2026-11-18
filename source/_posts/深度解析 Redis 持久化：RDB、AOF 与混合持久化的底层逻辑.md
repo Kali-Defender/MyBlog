@@ -6,7 +6,7 @@ categories:
 tags: 
   - Redis
 banner: /img/head.png
-description: 本文系统解析 Redis 的 RDB、AOF 与混合持久化底层原理、刷盘与恢复机制，并给出选型与避坑建议。。
+description: 系统解析 Redis 的 RDB、AOF 与混合持久化底层原理：fork 与写时复制、刷盘策略、AOF 重写与恢复机制，并给出选型与避坑建议。
 ---
 # 深度解析 Redis 持久化：RDB、AOF 与混合持久化的底层逻辑
 
