@@ -296,9 +296,9 @@ footer:
     - title: 博客
       items:
         - '[首页](/)'
-        - '[分类](/blog/categories/)'
-        - '[标签](/blog/tags/)'
-        - '[归档](/blog/archives/)'
+        - '[分类](/categories/)'
+        - '[标签](/tags/)'
+        - '[归档](/archives/)'
     - title: 关于
       items:
         - '[关于我](/about/)'
